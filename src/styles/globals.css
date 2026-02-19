@@ -444,21 +444,6 @@ a:focus-visible {
   outline-offset: -3px;
 }
 
-/* Botón guardar verde */
-.btn-save-green {
-  background-color: var(--color-primitive-green-primary) !important;
-  color: var(--btn-primary-text) !important;
-  border: none !important;
-}
-
-.btn-save-green:hover {
-  background-color: var(--color-primitive-green-medium) !important;
-}
-
-.btn-save-green:active {
-  background-color: var(--color-primitive-green-dark) !important;
-}
-
 /* Reducir movimiento para usuarios que lo prefieren */
 @media (prefers-reduced-motion: reduce) {
   *,
