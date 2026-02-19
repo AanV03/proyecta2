@@ -61,7 +61,7 @@ export default function TopBar() {
                 <div className="flex items-center gap-3">
                     {/* Logo */}
                     <Link href="/" aria-label="UTCH Home" className="flex items-center">
-                        <Image src="/img/utch-logo-blanco.png" alt="UTCH" width={32} height={32} className="logo-small" />
+                        <Image src="/img/utch-logo-blanco.png" alt="UTCH" width={200} height={200} className="logo-small" priority quality={100} />
                     </Link>
                     {/* spacing */}
                     <div className="h-0.5 w-3" aria-hidden="true" />

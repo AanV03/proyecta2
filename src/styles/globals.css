@@ -11,34 +11,48 @@
 
   /* ==================== LAYER 1: PRIMITIVA - COLORES BASE DE MARCA ==================== */
   /* Verdes de marca */
-  --color-primitive-green-darkest: oklch(0.332 0.155 161.8); /* #047235 - Verde Logo */
-  --color-primitive-green-dark: oklch(0.376 0.174 160.2); /* #0F7246 - Verde Oscuro Brand */
-  --color-primitive-green-medium: oklch(0.418 0.181 162.5); /* #128023 - Verde Medio */
-  --color-primitive-green-primary: oklch(0.647 0.237 94.6); /* #60A917 - Verde Botón Principal */
-  --color-primitive-green-light: oklch(0.703 0.228 119.1); /* #5EBB53 - Verde Claro */
-  --color-primitive-green-olive: oklch(0.538 0.214 94.3); /* #5C8C25 - Verde Oliva */
+  --color-primitive-green-darkest: oklch(0.332 0.155 161.8);
+  /* #047235 - Verde Logo */
+  --color-primitive-green-dark: oklch(0.376 0.174 160.2);
+  /* #0F7246 - Verde Oscuro Brand */
+  --color-primitive-green-medium: oklch(0.418 0.181 162.5);
+  /* #128023 - Verde Medio */
+  --color-primitive-green-primary: oklch(0.647 0.237 94.6);
+  /* #60A917 - Verde Botón Principal */
+  --color-primitive-green-light: oklch(0.703 0.228 119.1);
+  /* #5EBB53 - Verde Claro */
+  --color-primitive-green-olive: oklch(0.538 0.214 94.3);
+  /* #5C8C25 - Verde Oliva */
 
   /* Grises neutrales */
-  --color-primitive-gray-darkest: oklch(0.220 0.008 0); /* #272727 - Gris Casi Negro */
-  --color-primitive-gray-dark: oklch(0.206 0.011 244.8); /* #22282B - Gris Azulado Oscuro */
-  --color-primitive-gray-neutral: oklch(0.392 0.020 219.1); /* #455258 - Gris Neutro */
-  --color-primitive-gray-light: oklch(0.97 0 0); /* Blanco/Muy Claro */
+  --color-primitive-gray-darkest: oklch(0.220 0.008 0);
+  /* #272727 - Gris Casi Negro */
+  --color-primitive-gray-dark: oklch(0.206 0.011 244.8);
+  /* #22282B - Gris Azulado Oscuro */
+  --color-primitive-gray-neutral: oklch(0.392 0.020 219.1);
+  /* #455258 - Gris Neutro */
+  --color-primitive-gray-light: oklch(0.97 0 0);
+  /* Blanco/Muy Claro */
 
   /* ==================== LAYER 2: SEMÁNTICA - VARIABLES FUNCIONALES ==================== */
   /* Botones y acciones primarias */
-  --btn-primary-bg: var(--color-primitive-green-primary); /* #60A917 */
-  --btn-primary-text: var(--color-primitive-gray-dark); /* #22282B - Texto oscuro para contraste WCAG */
+  --btn-primary-bg: var(--color-primitive-green-primary);
+  /* #60A917 */
+  --btn-primary-text: var(--color-primitive-gray-dark);
+  /* #22282B - Texto oscuro para contraste WCAG */
   --btn-primary-hover: var(--color-primitive-green-medium);
   --btn-primary-active: var(--color-primitive-green-dark);
 
   /* Elementos secundarios */
   --btn-secondary-bg: var(--color-primitive-green-olive);
-  --btn-secondary-text: var(--color-primitive-gray-light); /* Blanco */
+  --btn-secondary-text: var(--color-primitive-gray-light);
+  /* Blanco */
   --btn-secondary-hover: var(--color-primitive-green-dark);
 
   /* Estados críticos y oscuros */
   --btn-dark-bg: var(--color-primitive-green-dark);
-  --btn-dark-text: var(--color-primitive-gray-light); /* Blanco */
+  --btn-dark-text: var(--color-primitive-gray-light);
+  /* Blanco */
   --btn-dark-hover: var(--color-primitive-green-darkest);
 
   /* Texto base */
@@ -72,35 +86,57 @@
 
   /* ==================== LAYER 2.5: COLORES DIAGRAMA CALIDAD ==================== */
   /* Colores del sistema de gestión de calidad */
-  --color-diagram-root: oklch(0.637 0.211 37.8); /* orange-400 a 500 gradient */
-  --color-diagram-teal-light: oklch(0.596 0.127 182.96); /* teal-500 */
-  --color-diagram-teal-dark: oklch(0.544 0.118 184.3); /* teal-600 */
-  --color-diagram-purple: oklch(0.533 0.163 308.5); /* purple-600 */
-  --color-diagram-blue: oklch(0.528 0.165 263.7); /* blue-600 */
-  --color-diagram-blue-dark: oklch(0.49 0.19 264); /* blue-700 */
-  --color-diagram-green: oklch(0.569 0.153 150.6); /* green-600 */
-  --color-diagram-orange: oklch(0.575 0.188 40.9); /* orange-600 */
-  --color-diagram-gray: oklch(0.439 0.026 248.5); /* gray-500/700 */
-  --color-diagram-yellow: oklch(0.616 0.161 94.5); /* yellow-600 */
-  --color-diagram-red: oklch(0.557 0.214 27.2); /* red-600 */
-  --color-diagram-pink: oklch(0.57 0.191 320.5); /* pink-600 */
-  --color-diagram-cyan: oklch(0.552 0.219 200.8); /* cyan-600 */
-  --color-diagram-indigo: oklch(0.49 0.201 298.1); /* indigo-600 */
-  --color-diagram-lime: oklch(0.602 0.185 120.9); /* lime-600 */
-  --color-diagram-slate: oklch(0.439 0.026 248.5); /* slate-600 */
-  
+  --color-diagram-root: oklch(0.637 0.211 37.8);
+  /* orange-400 a 500 gradient */
+  --color-diagram-teal-light: oklch(0.596 0.127 182.96);
+  /* teal-500 */
+  --color-diagram-teal-dark: oklch(0.544 0.118 184.3);
+  /* teal-600 */
+  --color-diagram-purple: oklch(0.533 0.163 308.5);
+  /* purple-600 */
+  --color-diagram-blue: oklch(0.528 0.165 263.7);
+  /* blue-600 */
+  --color-diagram-blue-dark: oklch(0.49 0.19 264);
+  /* blue-700 */
+  --color-diagram-green: oklch(0.569 0.153 150.6);
+  /* green-600 */
+  --color-diagram-orange: oklch(0.575 0.188 40.9);
+  /* orange-600 */
+  --color-diagram-gray: oklch(0.439 0.026 248.5);
+  /* gray-500/700 */
+  --color-diagram-yellow: oklch(0.616 0.161 94.5);
+  /* yellow-600 */
+  --color-diagram-red: oklch(0.557 0.214 27.2);
+  /* red-600 */
+  --color-diagram-pink: oklch(0.57 0.191 320.5);
+  /* pink-600 */
+  --color-diagram-cyan: oklch(0.552 0.219 200.8);
+  /* cyan-600 */
+  --color-diagram-indigo: oklch(0.49 0.201 298.1);
+  /* indigo-600 */
+  --color-diagram-lime: oklch(0.602 0.185 120.9);
+  /* lime-600 */
+  --color-diagram-slate: oklch(0.439 0.026 248.5);
+  /* slate-600 */
+
   /* Colores de búsqueda */
-  --color-search-bg-start: oklch(0.528 0.165 263.7); /* blue-600 */
-  --color-search-bg-end: oklch(0.49 0.19 264); /* blue-700 */
+  --color-search-bg-start: oklch(0.528 0.165 263.7);
+  /* blue-600 */
+  --color-search-bg-end: oklch(0.49 0.19 264);
+  /* blue-700 */
 
   /* ==================== LAYER 2.6: OPERATIVEDOCS - COLORES DOCUMENTOS ==================== */
   /* Header y tabla colors */
-  --table-header-bg: oklch(0.35 0.15 340); /* #6B1B47 - Maroon oscuro para headers */
-  --table-header-text: var(--color-primitive-gray-light); /* Blanco */
+  --table-header-bg: oklch(0.35 0.15 340);
+  /* #6B1B47 - Maroon oscuro para headers */
+  --table-header-text: var(--color-primitive-gray-light);
+  /* Blanco */
 
   /* Icon colors */
-  --icon-folder-color: oklch(0.75 0.15 45); /* #D4A500 - Amarillo/Oro para carpetas */
-  --icon-document-color: oklch(0.6 0.19 260); /* #4C90C0 - Azul para documentos */
+  --icon-folder-color: oklch(0.75 0.15 45);
+  /* #D4A500 - Amarillo/Oro para carpetas */
+  --icon-document-color: oklch(0.6 0.19 260);
+  /* #4C90C0 - Azul para documentos */
 
   /* ==================== LAYER 3: EXISTENTES (MANTENIDOS PARA COMPATIBILIDAD) ==================== */
   --background: oklch(1 0 0);
@@ -175,6 +211,7 @@
     border-color: var(--border);
     outline-color: var(--ring);
   }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
@@ -324,7 +361,7 @@ a:focus-visible {
 }
 
 .logo-small {
-  height: 1.7rem;
+  height: 2.5rem;
   width: auto;
 }
 
@@ -340,6 +377,25 @@ a:focus-visible {
 .dropdown-content-dark {
   background-color: var(--btn-dark-bg);
   color: var(--btn-dark-text);
+}
+
+/* Dropdown Menu Styles */
+/* Sidebar dropdowns - dark background */
+.sidebar [data-slot="dropdown-menu-content"],
+.sidebar [role="menu"] {
+  background-color: var(--color-primitive-gray-dark) !important;
+  color: var(--text-inverse) !important;
+}
+
+/* Topbar dropdowns - white background */
+.topbar-dropdown {
+  background-color: white !important;
+  color: var(--text-body) !important;
+}
+
+.topbar-dropdown [role="menuitem"],
+.topbar-dropdown [role="menuitem"]:hover {
+  color: var(--text-body) !important;
 }
 
 /* Page-specific classes to replace inline styles in page.tsx */
@@ -373,8 +429,10 @@ a:focus-visible {
 }
 
 .sidebar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .sidebar-header {
@@ -459,7 +517,6 @@ a:focus-visible {
   outline-offset: -3px;
 }
 
-<<<<<<< HEAD
 /* Dialog Styles */
 [role="dialog"] {
   background-color: var(--surface-bg);
@@ -481,299 +538,300 @@ a:focus-visible {
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin: 0;
-=======
-/* ==================== UTILITY CLASSES PARA VARIABLES CSS ==================== */
-/* Clases de texto */
-.text-body {
-  color: var(--text-body);
-}
 
-.text-secondary {
-  color: var(--text-secondary);
-}
-
-.text-muted {
-  color: var(--text-muted);
-}
-
-.text-inverse {
-  color: var(--text-inverse);
-}
-
-/* Clases de fondo */
-.bg-surface {
-  background-color: var(--surface-bg);
-}
-
-.bg-surface-card {
-  background-color: var(--surface-card);
-}
-
-.bg-surface-secondary {
-  background-color: var(--surface-secondary);
-}
-
-.bg-btn-primary {
-  background-color: var(--btn-primary-bg);
-}
-
-.bg-btn-dark {
-  background-color: var(--btn-dark-bg);
-}
-
-.text-btn-primary {
-  color: var(--btn-primary-text);
-}
-
-.text-btn-dark {
-  color: var(--btn-dark-text);
-}
-
-/* Clases de borde */
-.border-default {
-  border-color: var(--border-default);
-}
-
-.border-focus {
-  border-color: var(--border-focus);
-}
-
-/* Estados */
-.bg-success {
-  background-color: var(--state-success-bg);
-  color: var(--state-success-text);
-  border-color: var(--state-success-border);
->>>>>>> 26e261be662beaaf4f2e4d25c2268d0cab71e9b2
-}
-
-/* Reducir movimiento para usuarios que lo prefieren */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  /* ==================== UTILITY CLASSES PARA VARIABLES CSS ==================== */
+  /* Clases de texto */
+  .text-body {
+    color: var(--text-body);
   }
-}
 
-/* ==================== DIAGRAM CALIDAD CUSTOM CLASSES ==================== */
-/* Reemplazo de colores hardcodeados del diagrama con variables CSS */
+  .text-secondary {
+    color: var(--text-secondary);
+  }
 
-.diagram-root {
-  background: linear-gradient(to right, var(--color-diagram-root) 0%, var(--color-diagram-root) 100%);
-  color: white;
-}
+  .text-muted {
+    color: var(--text-muted);
+  }
 
-.diagram-teal-light {
-  background-color: var(--color-diagram-teal-light);
-  color: white;
-}
+  .text-inverse {
+    color: var(--text-inverse);
+  }
 
-.diagram-teal-dark {
-  background-color: var(--color-diagram-teal-dark);
-  color: white;
-}
+  /* Clases de fondo */
+  .bg-surface {
+    background-color: var(--surface-bg);
+  }
 
-.diagram-purple {
-  background-color: var(--color-diagram-purple);
-  color: white;
-}
+  .bg-surface-card {
+    background-color: var(--surface-card);
+  }
 
-.diagram-blue {
-  background-color: var(--color-diagram-blue);
-  color: white;
-}
+  .bg-surface-secondary {
+    background-color: var(--surface-secondary);
+  }
 
-.diagram-blue-dark {
-  background-color: var(--color-diagram-blue-dark);
-  color: white;
-}
+  .bg-btn-primary {
+    background-color: var(--btn-primary-bg);
+  }
 
-.diagram-green {
-  background-color: var(--color-diagram-green);
-  color: white;
-}
+  .bg-btn-dark {
+    background-color: var(--btn-dark-bg);
+  }
 
-.diagram-orange {
-  background-color: var(--color-diagram-orange);
-  color: white;
-}
+  .text-btn-primary {
+    color: var(--btn-primary-text);
+  }
 
-.diagram-gray {
-  background-color: var(--color-diagram-gray);
-  color: white;
-}
+  .text-btn-dark {
+    color: var(--btn-dark-text);
+  }
 
-.diagram-yellow {
-  background-color: var(--color-diagram-yellow);
-  color: white;
-}
+  /* Clases de borde */
+  .border-default {
+    border-color: var(--border-default);
+  }
 
-.diagram-red {
-  background-color: var(--color-diagram-red);
-  color: white;
-}
+  .border-focus {
+    border-color: var(--border-focus);
+  }
 
-.diagram-pink {
-  background-color: var(--color-diagram-pink);
-  color: white;
-}
+  /* Estados */
+  .bg-success {
+    background-color: var(--state-success-bg);
+    color: var(--state-success-text);
+    border-color: var(--state-success-border);
+  }
 
-.diagram-cyan {
-  background-color: var(--color-diagram-cyan);
-  color: white;
-}
+  /* Reducir movimiento para usuarios que lo prefieren */
+  @media (prefers-reduced-motion: reduce) {
 
-.diagram-indigo {
-  background-color: var(--color-diagram-indigo);
-  color: white;
-}
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 
-.diagram-lime {
-  background-color: var(--color-diagram-lime);
-  color: white;
-}
+  /* ==================== DIAGRAM CALIDAD CUSTOM CLASSES ==================== */
+  /* Reemplazo de colores hardcodeados del diagrama con variables CSS */
 
-.diagram-slate {
-  background-color: var(--color-diagram-slate);
-  color: white;
-}
+  .diagram-root {
+    background: linear-gradient(to right, var(--color-diagram-root) 0%, var(--color-diagram-root) 100%);
+    color: white;
+  }
 
-.search-gradient {
-  background: linear-gradient(to right, var(--color-search-bg-start), var(--color-search-bg-end));
-  color: white;
-}
+  .diagram-teal-light {
+    background-color: var(--color-diagram-teal-light);
+    color: white;
+  }
 
-/* ==================== OPERATIVE DOCS PAGE STYLES ==================== */
-/* Estilos específicos para la página de Documentos Operativos */
+  .diagram-teal-dark {
+    background-color: var(--color-diagram-teal-dark);
+    color: white;
+  }
 
-.operative-docs-main {
-  min-height: 100vh;
-  background-color: var(--surface-bg);
-}
+  .diagram-purple {
+    background-color: var(--color-diagram-purple);
+    color: white;
+  }
 
-.operative-docs-header {
-  border-bottom: 1px solid var(--border-default);
-  padding: 1.5rem;
-  background-color: var(--surface-bg);
-}
+  .diagram-blue {
+    background-color: var(--color-diagram-blue);
+    color: white;
+  }
 
-.operative-docs-header-icon {
-  color: var(--btn-primary-bg);
-}
+  .diagram-blue-dark {
+    background-color: var(--color-diagram-blue-dark);
+    color: white;
+  }
 
-.operative-docs-header-title {
-  color: var(--text-body);
-}
+  .diagram-green {
+    background-color: var(--color-diagram-green);
+    color: white;
+  }
 
-.operative-docs-search-card {
-  background: linear-gradient(to right, var(--color-search-bg-start), var(--color-search-bg-end));
-}
+  .diagram-orange {
+    background-color: var(--color-diagram-orange);
+    color: white;
+  }
 
-.operative-docs-search-label {
-  color: var(--text-inverse);
-}
+  .diagram-gray {
+    background-color: var(--color-diagram-gray);
+    color: white;
+  }
 
-.operative-docs-search-icon {
-  color: var(--color-primitive-gray-light);
-  opacity: 0.5;
-}
+  .diagram-yellow {
+    background-color: var(--color-diagram-yellow);
+    color: white;
+  }
 
-.operative-docs-input {
-  background-color: var(--surface-bg) !important;
-  color: var(--text-body) !important;
-}
+  .diagram-red {
+    background-color: var(--color-diagram-red);
+    color: white;
+  }
 
-.operative-docs-table-container {
-  background-color: var(--surface-bg);
-  border-color: var(--border-default);
-}
+  .diagram-pink {
+    background-color: var(--color-diagram-pink);
+    color: white;
+  }
 
-.operative-docs-table-header {
-  background-color: var(--table-header-bg);
-  color: white;
-}
+  .diagram-cyan {
+    background-color: var(--color-diagram-cyan);
+    color: white;
+  }
 
-.operative-docs-breadcrumb-section {
-  background-color: var(--surface-secondary);
-  border-color: var(--border-default);
-  border-bottom: 1px solid var(--border-default);
-}
+  .diagram-indigo {
+    background-color: var(--color-diagram-indigo);
+    color: white;
+  }
 
-.operative-docs-breadcrumb-link {
-  color: var(--text-body);
-}
+  .diagram-lime {
+    background-color: var(--color-diagram-lime);
+    color: white;
+  }
 
-.operative-docs-breadcrumb-separator {
-  color: var(--border-default);
-}
+  .diagram-slate {
+    background-color: var(--color-diagram-slate);
+    color: white;
+  }
 
-.operative-docs-breadcrumb-page {
-  color: var(--text-body);
-}
+  .search-gradient {
+    background: linear-gradient(to right, var(--color-search-bg-start), var(--color-search-bg-end));
+    color: white;
+  }
 
-.operative-docs-column-header {
-  background-color: var(--surface-secondary);
-  border-color: var(--border-default);
-  border-bottom: 1px solid var(--border-default);
-  color: var(--btn-primary-bg);
-}
+  /* ==================== OPERATIVE DOCS PAGE STYLES ==================== */
+  /* Estilos específicos para la página de Documentos Operativos */
 
-.operative-docs-table-row {
-  background-color: var(--surface-bg);
-  transition: background-color 0.2s ease-in-out;
-}
+  .operative-docs-main {
+    min-height: 100vh;
+    background-color: var(--surface-bg);
+  }
 
-.operative-docs-table-row:hover {
-  background-color: var(--surface-secondary);
-}
+  .operative-docs-header {
+    border-bottom: 1px solid var(--border-default);
+    padding: 1.5rem;
+    background-color: var(--surface-bg);
+  }
 
-.operative-docs-divide-y {
-  border-color: var(--border-default);
-}
+  .operative-docs-header-icon {
+    color: var(--btn-primary-bg);
+  }
 
-.operative-docs-icon-folder {
-  color: var(--icon-folder-color);
-}
+  .operative-docs-header-title {
+    color: var(--text-body);
+  }
 
-.operative-docs-icon-document {
-  color: var(--icon-document-color);
-}
+  .operative-docs-search-card {
+    background: linear-gradient(to right, var(--color-search-bg-start), var(--color-search-bg-end));
+  }
 
-.operative-docs-item-name {
-  color: var(--text-body);
-}
+  .operative-docs-search-label {
+    color: var(--text-inverse);
+  }
 
-.operative-docs-item-description {
-  color: var(--text-secondary);
-}
+  .operative-docs-search-icon {
+    color: var(--color-primitive-gray-light);
+    opacity: 0.5;
+  }
 
-.operative-docs-item-meta {
-  color: var(--text-muted);
-}
+  .operative-docs-input {
+    background-color: var(--surface-bg) !important;
+    color: var(--text-body) !important;
+  }
 
-.operative-docs-item-route {
-  color: var(--btn-primary-bg);
-}
+  .operative-docs-table-container {
+    background-color: var(--surface-bg);
+    border-color: var(--border-default);
+  }
 
-.operative-docs-item-chevron {
-  color: var(--text-muted);
-}
+  .operative-docs-table-header {
+    background-color: var(--table-header-bg);
+    color: white;
+  }
 
-.operative-docs-empty-state {
-  background-color: var(--surface-bg);
-}
+  .operative-docs-breadcrumb-section {
+    background-color: var(--surface-secondary);
+    border-color: var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+  }
 
-.operative-docs-empty-icon {
-  color: var(--state-disabled-text);
-}
+  .operative-docs-breadcrumb-link {
+    color: var(--text-body);
+  }
 
-.operative-docs-empty-title {
-  color: var(--text-secondary);
-}
+  .operative-docs-breadcrumb-separator {
+    color: var(--border-default);
+  }
 
-.operative-docs-empty-text {
-  color: var(--text-muted);
+  .operative-docs-breadcrumb-page {
+    color: var(--text-body);
+  }
+
+  .operative-docs-column-header {
+    background-color: var(--surface-secondary);
+    border-color: var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+    color: var(--btn-primary-bg);
+  }
+
+  .operative-docs-table-row {
+    background-color: var(--surface-bg);
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .operative-docs-table-row:hover {
+    background-color: var(--surface-secondary);
+  }
+
+  .operative-docs-divide-y {
+    border-color: var(--border-default);
+  }
+
+  .operative-docs-icon-folder {
+    color: var(--icon-folder-color);
+  }
+
+  .operative-docs-icon-document {
+    color: var(--icon-document-color);
+  }
+
+  .operative-docs-item-name {
+    color: var(--text-body);
+  }
+
+  .operative-docs-item-description {
+    color: var(--text-secondary);
+  }
+
+  .operative-docs-item-meta {
+    color: var(--text-muted);
+  }
+
+  .operative-docs-item-route {
+    color: var(--btn-primary-bg);
+  }
+
+  .operative-docs-item-chevron {
+    color: var(--text-muted);
+  }
+
+  .operative-docs-empty-state {
+    background-color: var(--surface-bg);
+  }
+
+  .operative-docs-empty-icon {
+    color: var(--state-disabled-text);
+  }
+
+  .operative-docs-empty-title {
+    color: var(--text-secondary);
+  }
+
+  .operative-docs-empty-text {
+    color: var(--text-muted);
+  }
 }

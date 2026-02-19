@@ -3,9 +3,8 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronDown, BookOpen, Users, CheckCircle, Cog, Calendar, BookMarked, Briefcase, FileText, TrendingUp, Building, Gift, Brain, CheckSquare, BarChart3, CreditCard } from "lucide-react"
+import { ChevronLeft, ChevronDown, BookOpen, Users, CheckCircle, Cog, Calendar, BookMarked, Briefcase, FileText, TrendingUp, Building, Gift, Brain, CheckSquare, CreditCard } from "lucide-react"
 import "@/styles/globals.css"
-import { hr } from "date-fns/locale"
 
 type Props = {
     isOpen: boolean
@@ -40,7 +39,7 @@ const menuItems = [
             { label: "Referencias Bancarias", icon: CreditCard, href: "/user/references" },
             { label: "Constancia De No Adeudo", icon: CheckCircle, href: "/user/debt" },
             // { label: "Sesiones De Tutoría", icon: BookOpen. , href: "/user/tutoring" },
-            { label: "Citas", icon: Calendar, href: "/user/appointments" },
+            { label: "Citas", icon: Calendar, href: "/user/apointments" },
             { label: "Titulación", icon: BookMarked, href: "/user/degree" },
         ],
     },

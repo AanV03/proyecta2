@@ -3,7 +3,6 @@
 import React, { useMemo } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
 import { Clock } from "lucide-react"
 
 export default function NotificationsPage() {

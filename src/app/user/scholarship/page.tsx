@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import TopBar from "@/app/_components/topbar";
 import { ArrowLeftCircle } from "lucide-react";
 
 export default function ScolarshipPage() {

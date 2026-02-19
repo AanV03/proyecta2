@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import TopBar from "@/app/_components/topbar";
 import { ArrowLeftCircle } from "lucide-react";
 
 export default function PsychologyPage() {
@@ -23,7 +22,7 @@ export default function PsychologyPage() {
         </div>
 
         <section aria-labelledby="citas-heading">
-          <details className="border" aria-expanded="true">
+          <details className="border">
             <summary
               id="citas-heading"
               role="button"

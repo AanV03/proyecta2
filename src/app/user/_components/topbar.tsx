@@ -11,7 +11,7 @@ import {
     DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
-import { LogOut, User, Menu, Calendar, Phone, Bell, ChevronDown, Globe } from "lucide-react"
+import { LogOut, User, Menu, Calendar, Phone, Bell, ChevronDown, Globe, Home } from "lucide-react"
 import {
     Dialog,
     DialogContent,
@@ -70,14 +70,28 @@ export default function TopBar({ onMenuClick }: Props) {
                     <Image
                         src="/img/Proyecta_logo.png"
                         alt="Proyecta"
-                        width={40}
-                        height={40}
-                        className="h-10 w-auto rounded"
+                        width={200}
+                        height={200}
+                        className="h-12 w-auto rounded"
+                        priority
+                        quality={100}
                     />
                 </div>
 
                 {/* Navigation dropdowns - center */}
                 <div className="flex items-center gap-2 flex-1 justify-center">
+                    {/* Inicio */}
+                    <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="topbar-nav-btn rounded"
+                        aria-label="Ir a inicio"
+                        onClick={() => router.push('/user')}
+                    >
+                        <Home className="size-4" aria-hidden="true" />
+                        <span className="text-xs">Inicio</span>
+                    </Button>
+
                     {/* Navigation */}
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -91,7 +105,7 @@ export default function TopBar({ onMenuClick }: Props) {
                                 <span className="text-xs">Navegación</span>
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="start">
+                        <DropdownMenuContent align="start" className="topbar-dropdown">
                             <DropdownMenuItem>UTCH</DropdownMenuItem>
                             <DropdownMenuItem>Correo y Apps</DropdownMenuItem>
                             <DropdownMenuItem>UTCH Virtual</DropdownMenuItem>
@@ -112,7 +126,7 @@ export default function TopBar({ onMenuClick }: Props) {
                                 <span className="text-xs">Calendario</span>
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="center">
+                        <DropdownMenuContent align="center" className="topbar-dropdown">
                             <DropdownMenuItem
                                 onClick={() => {
                                     setCalendarType("upcoming")
@@ -153,7 +167,7 @@ export default function TopBar({ onMenuClick }: Props) {
                                 <span className="text-xs">Directorio</span>
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="center">
+                        <DropdownMenuContent align="center" className="topbar-dropdown">
                             <div className="px-3 py-2 w-64">
                                 <Input
                                     placeholder="Buscar..."
@@ -198,7 +212,7 @@ export default function TopBar({ onMenuClick }: Props) {
                                 <span className="text-xs">Notificaciones</span>
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end" className="w-80">
+                        <DropdownMenuContent align="end" className="w-80 topbar-dropdown">
                             <DropdownMenuItem>Nueva mensaje de profesor</DropdownMenuItem>
                             <DropdownMenuItem>Calificación publicada</DropdownMenuItem>
                             <DropdownMenuItem>Evento próximo</DropdownMenuItem>
@@ -234,8 +248,8 @@ export default function TopBar({ onMenuClick }: Props) {
                                 <ChevronDown className="size-4 ml-1" aria-hidden="true" />
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                            <DropdownMenuItem>Cuenta de usuario</DropdownMenuItem>
+                        <DropdownMenuContent align="end" className="topbar-dropdown">
+                            <DropdownMenuItem onClick={() => router.push('/user/account')}>Cuenta de usuario</DropdownMenuItem>
                             <DropdownMenuItem>Registro Vehicular</DropdownMenuItem>
                             <DropdownMenuItem variant="destructive" asChild>
                                 <button className="w-full flex items-center gap-2">

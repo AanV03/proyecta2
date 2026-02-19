@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import TopBar from "@/app/_components/topbar";
 
 const references = [
   { id: 1, name: "REVALIDACION EXTERNA", cost: "366.00", convenio: "01508105" },
