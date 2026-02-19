@@ -1,9 +1,11 @@
 "use client"
 
 import React, { useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronDown, BookOpen, Users, CheckCircle, Cog, Calendar, BookMarked, Briefcase, FileText, TrendingUp, Building, Gift, Brain, CheckSquare, BarChart3, CreditCard } from "lucide-react"
 import "@/styles/globals.css"
+import { hr } from "date-fns/locale"
 
 type Props = {
     isOpen: boolean
@@ -16,10 +18,9 @@ const menuItems = [
         label: "Módulos Generales",
         icon: BookOpen,
         subItems: [
-            { label: "Calidad", icon: CheckCircle },
-            { label: "Documentación Operativa", icon: Cog },
-            { label: "Bolsa de Trabajo Cazadores", icon: Briefcase },
-            { label: "Bolsa de Trabajo RH", icon: Briefcase },
+            { label: "Calidad", icon: CheckCircle, href: "/user/gen-modules/quality" },
+            { label: "Documentación Operativa", icon: Cog, href: "/user/gen-modules/operativedocs" },
+            { label: "Bolsa de Trabajo", icon: Briefcase, href: "https://proyecta.utch.edu.mx/bolsatrabajo/index" },
         ],
     },
     {
@@ -27,20 +28,20 @@ const menuItems = [
         label: "Alumnos",
         icon: Users,
         subItems: [
-            { label: "Información", icon: FileText },
-            { label: "Estado De Cuenta", icon: TrendingUp },
-            { label: "Estadía", icon: Building },
+            { label: "Información", icon: FileText, href: "/user/information" },
+            { label: "Estado De Cuenta", icon: TrendingUp, href: "/user/statement" },
+            { label: "Estadía", icon: Building, href: "/user/internship" },
             { label: "Becas", icon: Gift },
-            { label: "Empleo Y Estadía", icon: Briefcase },
+            { label: "Empleo Y Estadía", icon: Briefcase, href: "/user/employess" },
             { label: "Prácticas Profesionales", icon: Users },
-            { label: "Psicología", icon: Brain },
-            { label: "Actividades D, C Y C", icon: CheckSquare },
+            { label: "Psicología", icon: Brain, href: "/user/psychology" },
+            { label: "Actividades D, C Y C", icon: CheckSquare, href: "/user/extracurricular-activities" },
             { label: "Evaluaciones Psicométricas", icon: BarChart3 },
-            { label: "Referencias Bancarias", icon: CreditCard },
-            { label: "Constancia De No Adeudo", icon: CheckCircle },
+            { label: "Referencias Bancarias", icon: CreditCard, href: "/user/references" },
+            { label: "Constancia De No Adeudo", icon: CheckCircle, href: "/user/debt" },
             { label: "Sesiones De Tutoría", icon: BookOpen },
-            { label: "Citas", icon: Calendar },
-            { label: "Titulación", icon: BookMarked },
+            { label: "Citas", icon: Calendar, href: "/user/appointments" },
+            { label: "Titulación", icon: BookMarked, href: "/user/degree" },
         ],
     },
 ]
@@ -101,8 +102,7 @@ export default function Sidebar({ isOpen, onClose }: Props) {
                                 <button
                                     onClick={() => hasSubItems && toggleExpand(item.id)}
                                     className="sidebar-menu-item w-full flex items-center justify-between px-4 py-3 rounded-lg text-left"
-                                    aria-expanded={hasSubItems ? isExpanded : undefined}
-                                    aria-haspopup={hasSubItems ? "menu" : undefined}
+                                    {...(hasSubItems && { "aria-expanded": isExpanded, "aria-haspopup": "menu" })}
                                 >
                                     <div className="flex items-center gap-3 flex-1">
                                         <ItemIcon className="size-4 shrink-0" aria-hidden="true" />
@@ -121,11 +121,49 @@ export default function Sidebar({ isOpen, onClose }: Props) {
                                 {hasSubItems && isExpanded && (
                                     <div
                                         className="sidebar-submenu-container mt-1 space-y-1"
-                                        role="group"
+                                        role="menu"
                                         aria-labelledby={item.id}
                                     >
                                         {item.subItems.map((subItem, index) => {
                                             const SubIcon = subItem.icon
+                                            const isLink = 'href' in subItem && subItem.href
+                                            const isExternalLink = isLink && subItem.href?.startsWith('http')
+
+                                            // Link externo (http/https)
+                                            if (isExternalLink) {
+                                                return (
+                                                    <a
+                                                        key={index}
+                                                        href={subItem.href}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        onClick={onClose}
+                                                        className="sidebar-submenu-item w-full flex items-center gap-3 px-4 py-2 rounded-lg text-left transition-all"
+                                                        role="menuitem"
+                                                    >
+                                                        <SubIcon className="size-3.5 shrink-0" aria-hidden="true" />
+                                                        <span className="text-xs">{subItem.label}</span>
+                                                    </a>
+                                                )
+                                            }
+
+                                            // Link interno (rutas de Next.js)
+                                            if (isLink) {
+                                                return (
+                                                    <Link
+                                                        key={index}
+                                                        href={subItem.href}
+                                                        onClick={onClose}
+                                                        className="sidebar-submenu-item w-full flex items-center gap-3 px-4 py-2 rounded-lg text-left transition-all"
+                                                        role="menuitem"
+                                                    >
+                                                        <SubIcon className="size-3.5 shrink-0" aria-hidden="true" />
+                                                        <span className="text-xs">{subItem.label}</span>
+                                                    </Link>
+                                                )
+                                            }
+
+                                            // Button sin href
                                             return (
                                                 <button
                                                     key={index}
