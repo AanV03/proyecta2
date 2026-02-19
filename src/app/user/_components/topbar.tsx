@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useMemo, useState } from "react"
+import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
@@ -11,13 +12,41 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { LogOut, User, Menu, Calendar, Phone, Bell, ChevronDown, Globe } from "lucide-react"
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+} from "@/components/ui/dialog"
 
 type Props = {
     onMenuClick: () => void
 }
 
 export default function TopBar({ onMenuClick }: Props) {
+    const router = useRouter()
     const [dirQuery, setDirQuery] = useState("")
+    const [isCalendarOpen, setIsCalendarOpen] = useState(false)
+    const [calendarType, setCalendarType] = useState<"upcoming" | "academic" | "full" | null>(null)
+
+    // TODO: replace these with real data from API
+    const upcomingEvents = useMemo(
+        () => [
+            { id: 1, title: "Feria de Ciencias", date: "2026-03-01" },
+            { id: 2, title: "Charla: Carreras", date: "2026-03-05" },
+        ],
+        []
+    )
+
+    const academicEvents = useMemo(
+        () => [
+            { id: 1, title: "Inicio de semestre", date: "2026-02-20" },
+            { id: 2, title: "Exámenes parciales", date: "2026-04-10" },
+        ],
+        []
+    )
     const directoryItems = useMemo(
         () => ["Departamentos", "Directorio completo"],
         []
@@ -84,9 +113,30 @@ export default function TopBar({ onMenuClick }: Props) {
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="center">
-                            <DropdownMenuItem>Próximos eventos</DropdownMenuItem>
-                            <DropdownMenuItem>Eventos académicos</DropdownMenuItem>
-                            <DropdownMenuItem>Ver calendario completo</DropdownMenuItem>
+                            <DropdownMenuItem
+                                onClick={() => {
+                                    setCalendarType("upcoming")
+                                    setIsCalendarOpen(true)
+                                }}
+                            >
+                                Próximos eventos
+                            </DropdownMenuItem>
+                            <DropdownMenuItem
+                                onClick={() => {
+                                    setCalendarType("academic")
+                                    setIsCalendarOpen(true)
+                                }}
+                            >
+                                Eventos académicos
+                            </DropdownMenuItem>
+                            <DropdownMenuItem
+                                onClick={() => {
+                                    setCalendarType("full")
+                                    setIsCalendarOpen(true)
+                                }}
+                            >
+                                Ver calendario completo
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
 
@@ -114,7 +164,16 @@ export default function TopBar({ onMenuClick }: Props) {
                             </div>
                             {filteredDirectory.length > 0 ? (
                                 filteredDirectory.map((item) => (
-                                    <DropdownMenuItem key={item}>{item}</DropdownMenuItem>
+                                    <DropdownMenuItem
+                                        key={item}
+                                        onClick={() => {
+                                            if (item === "Directorio completo") {
+                                                router.push('/user/directory')
+                                            }
+                                        }}
+                                    >
+                                        {item}
+                                    </DropdownMenuItem>
                                 ))
                             ) : (
                                 <DropdownMenuItem className="opacity-60">No hay resultados</DropdownMenuItem>
@@ -143,7 +202,12 @@ export default function TopBar({ onMenuClick }: Props) {
                             <DropdownMenuItem>Nueva mensaje de profesor</DropdownMenuItem>
                             <DropdownMenuItem>Calificación publicada</DropdownMenuItem>
                             <DropdownMenuItem>Evento próximo</DropdownMenuItem>
-                            <DropdownMenuItem className="text-center justify-center">Ver todas</DropdownMenuItem>
+                            <DropdownMenuItem
+                                className="text-center justify-center"
+                                onClick={() => router.push('/user/notifications')}
+                            >
+                                Ver todas
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
@@ -183,6 +247,79 @@ export default function TopBar({ onMenuClick }: Props) {
                     </DropdownMenu>
                 </div>
             </div>
+
+            <Dialog
+                open={isCalendarOpen}
+                onOpenChange={(open) => {
+                    setIsCalendarOpen(open)
+                    if (!open) setCalendarType(null)
+                }}
+            >
+                <DialogContent showCloseButton>
+                    <DialogHeader>
+                        <DialogTitle>
+                            {calendarType === "academic" ? "Eventos académicos" : "Próximos eventos"}
+                        </DialogTitle>
+                        <DialogDescription>
+                            {calendarType === "academic"
+                                ? "Eventos académicos disponibles"
+                                : "Eventos próximos disponibles"}
+                        </DialogDescription>
+                    </DialogHeader>
+
+                    <div className="mt-2 max-h-60 overflow-auto">
+                        {calendarType === "academic" ? (
+                            academicEvents.length > 0 ? (
+                                academicEvents.map((ev) => (
+                                    <div key={ev.id} className="py-2 border-b last:border-b-0">
+                                        <p className="font-medium">{ev.title}</p>
+                                        <p className="text-xs opacity-70">{ev.date}</p>
+                                    </div>
+                                ))
+                            ) : (
+                                <p className="opacity-60">No hay eventos académicos</p>
+                            )
+                        ) : calendarType === "upcoming" ? (
+                            upcomingEvents.length > 0 ? (
+                                upcomingEvents.map((ev) => (
+                                    <div key={ev.id} className="py-2 border-b last:border-b-0">
+                                        <p className="font-medium">{ev.title}</p>
+                                        <p className="text-xs opacity-70">{ev.date}</p>
+                                    </div>
+                                ))
+                            ) : (
+                                <p className="opacity-60">No hay eventos próximos</p>
+                            )
+                        ) : calendarType === "full" ? (
+                            <div className="w-full h-96">
+                                <div className="mb-2 text-sm">
+                                    <a
+                                        href="https://www.utch.edu.mx/wp-content/uploads/2025/12/CALENDARIO-ENE-ABR-2026.pdf"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="text-primary underline"
+                                    >
+                                        Abrir calendario en nueva pestaña
+                                    </a>
+                                </div>
+                                <iframe
+                                    src="https://www.utch.edu.mx/wp-content/uploads/2025/12/CALENDARIO-ENE-ABR-2026.pdf"
+                                    title="Calendario completo ENE-ABR 2026"
+                                    className="w-full h-full border"
+                                />
+                            </div>
+                        ) : (
+                            <p className="opacity-60">Seleccione una sección del calendario</p>
+                        )}
+                    </div>
+
+                    <DialogFooter className="mt-4">
+                        <Button variant="outline" onClick={() => setIsCalendarOpen(false)}>
+                            Cerrar
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </header>
     )
 }
