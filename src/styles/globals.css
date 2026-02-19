@@ -138,6 +138,15 @@
   --color-search-bg-start: oklch(0.528 0.165 263.7); /* blue-600 */
   --color-search-bg-end: oklch(0.49 0.19 264); /* blue-700 */
 
+  /* ==================== LAYER 2.6: OPERATIVEDOCS - COLORES DOCUMENTOS ==================== */
+  /* Header y tabla colors */
+  --table-header-bg: oklch(0.35 0.15 340); /* #6B1B47 - Maroon oscuro para headers */
+  --table-header-text: var(--color-primitive-gray-light); /* Blanco */
+
+  /* Icon colors */
+  --icon-folder-color: oklch(0.75 0.15 45); /* #D4A500 - Amarillo/Oro para carpetas */
+  --icon-document-color: oklch(0.6 0.19 260); /* #4C90C0 - Azul para documentos */
+
   /* ==================== LAYER 3: EXISTENTES (MANTENIDOS PARA COMPATIBILIDAD) ==================== */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -654,4 +663,136 @@ a:focus-visible {
 .search-gradient {
   background: linear-gradient(to right, var(--color-search-bg-start), var(--color-search-bg-end));
   color: white;
+}
+
+/* ==================== OPERATIVE DOCS PAGE STYLES ==================== */
+/* Estilos específicos para la página de Documentos Operativos */
+
+.operative-docs-main {
+  min-height: 100vh;
+  background-color: var(--surface-bg);
+}
+
+.operative-docs-header {
+  border-bottom: 1px solid var(--border-default);
+  padding: 1.5rem;
+  background-color: var(--surface-bg);
+}
+
+.operative-docs-header-icon {
+  color: var(--btn-primary-bg);
+}
+
+.operative-docs-header-title {
+  color: var(--text-body);
+}
+
+.operative-docs-search-card {
+  background: linear-gradient(to right, var(--color-search-bg-start), var(--color-search-bg-end));
+}
+
+.operative-docs-search-label {
+  color: var(--text-inverse);
+}
+
+.operative-docs-search-icon {
+  color: var(--color-primitive-gray-light);
+  opacity: 0.5;
+}
+
+.operative-docs-input {
+  background-color: var(--surface-bg) !important;
+  color: var(--text-body) !important;
+}
+
+.operative-docs-table-container {
+  background-color: var(--surface-bg);
+  border-color: var(--border-default);
+}
+
+.operative-docs-table-header {
+  background-color: var(--table-header-bg);
+  color: white;
+}
+
+.operative-docs-breadcrumb-section {
+  background-color: var(--surface-secondary);
+  border-color: var(--border-default);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.operative-docs-breadcrumb-link {
+  color: var(--text-body);
+}
+
+.operative-docs-breadcrumb-separator {
+  color: var(--border-default);
+}
+
+.operative-docs-breadcrumb-page {
+  color: var(--text-body);
+}
+
+.operative-docs-column-header {
+  background-color: var(--surface-secondary);
+  border-color: var(--border-default);
+  border-bottom: 1px solid var(--border-default);
+  color: var(--btn-primary-bg);
+}
+
+.operative-docs-table-row {
+  background-color: var(--surface-bg);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.operative-docs-table-row:hover {
+  background-color: var(--surface-secondary);
+}
+
+.operative-docs-divide-y {
+  border-color: var(--border-default);
+}
+
+.operative-docs-icon-folder {
+  color: var(--icon-folder-color);
+}
+
+.operative-docs-icon-document {
+  color: var(--icon-document-color);
+}
+
+.operative-docs-item-name {
+  color: var(--text-body);
+}
+
+.operative-docs-item-description {
+  color: var(--text-secondary);
+}
+
+.operative-docs-item-meta {
+  color: var(--text-muted);
+}
+
+.operative-docs-item-route {
+  color: var(--btn-primary-bg);
+}
+
+.operative-docs-item-chevron {
+  color: var(--text-muted);
+}
+
+.operative-docs-empty-state {
+  background-color: var(--surface-bg);
+}
+
+.operative-docs-empty-icon {
+  color: var(--state-disabled-text);
+}
+
+.operative-docs-empty-title {
+  color: var(--text-secondary);
+}
+
+.operative-docs-empty-text {
+  color: var(--text-muted);
 }
