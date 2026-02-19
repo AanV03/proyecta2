@@ -4,7 +4,6 @@ import { useState } from 'react';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -21,11 +20,6 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import {
   FileText,
-  User,
-  Briefcase,
-  Mail,
-  Clock,
-  Building2,
   Save,
   RotateCcw,
 } from 'lucide-react';
@@ -130,26 +124,18 @@ export default function InternshipPage() {
   );
 
   return (
-    <main className="min-h-screen" style={{ backgroundColor: 'var(--surface-bg)' }}>
+    <main className="min-h-screen bg-(--surface-bg)">
       {/* Header */}
       <div
-        className="w-full px-6 py-6 flex items-center gap-4"
-        style={{
-          backgroundColor: 'var(--btn-dark-bg)',
-          borderBottom: `2px solid var(--border-default)`,
-        }}
+        className="w-full px-6 py-6 flex items-center gap-4 bg-(--btn-dark-bg) border-b-2 border-(--border-default)"
       >
         <FileText
           size={32}
-          style={{ color: 'var(--text-inverse)' }}
+          className="text-(--text-inverse)"
           aria-hidden="true"
         />
         <h1
-          style={{
-            color: 'var(--text-inverse)',
-            fontSize: '1.875rem',
-            fontWeight: '600',
-          }}
+          className="text-(--text-inverse) text-3xl font-semibold"
         >
           Convenio de Estadías
         </h1>

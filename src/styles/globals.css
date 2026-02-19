@@ -62,9 +62,45 @@
   --state-error-border: oklch(0.577 0.245 27.325);
   --state-error-text: oklch(0.4 0.2 27.325);
 
+  --state-success-bg: oklch(0.95 0.08 140);
+  --state-success-border: oklch(0.703 0.228 119.1);
+  --state-success-text: oklch(0.42 0.15 120);
+
   --state-disabled-bg: oklch(0.97 0 0);
   --state-disabled-text: oklch(0.556 0 0);
   --state-disabled-border: oklch(0.922 0 0);
+
+  /* ==================== LAYER 2.5: COLORES DIAGRAMA CALIDAD ==================== */
+  /* Colores del sistema de gestión de calidad */
+  --color-diagram-root: oklch(0.637 0.211 37.8); /* orange-400 a 500 gradient */
+  --color-diagram-teal-light: oklch(0.596 0.127 182.96); /* teal-500 */
+  --color-diagram-teal-dark: oklch(0.544 0.118 184.3); /* teal-600 */
+  --color-diagram-purple: oklch(0.533 0.163 308.5); /* purple-600 */
+  --color-diagram-blue: oklch(0.528 0.165 263.7); /* blue-600 */
+  --color-diagram-blue-dark: oklch(0.49 0.19 264); /* blue-700 */
+  --color-diagram-green: oklch(0.569 0.153 150.6); /* green-600 */
+  --color-diagram-orange: oklch(0.575 0.188 40.9); /* orange-600 */
+  --color-diagram-gray: oklch(0.439 0.026 248.5); /* gray-500/700 */
+  --color-diagram-yellow: oklch(0.616 0.161 94.5); /* yellow-600 */
+  --color-diagram-red: oklch(0.557 0.214 27.2); /* red-600 */
+  --color-diagram-pink: oklch(0.57 0.191 320.5); /* pink-600 */
+  --color-diagram-cyan: oklch(0.552 0.219 200.8); /* cyan-600 */
+  --color-diagram-indigo: oklch(0.49 0.201 298.1); /* indigo-600 */
+  --color-diagram-lime: oklch(0.602 0.185 120.9); /* lime-600 */
+  --color-diagram-slate: oklch(0.439 0.026 248.5); /* slate-600 */
+  
+  /* Colores de búsqueda */
+  --color-search-bg-start: oklch(0.528 0.165 263.7); /* blue-600 */
+  --color-search-bg-end: oklch(0.49 0.19 264); /* blue-700 */
+
+  /* ==================== LAYER 2.6: OPERATIVEDOCS - COLORES DOCUMENTOS ==================== */
+  /* Header y tabla colors */
+  --table-header-bg: oklch(0.35 0.15 340); /* #6B1B47 - Maroon oscuro para headers */
+  --table-header-text: var(--color-primitive-gray-light); /* Blanco */
+
+  /* Icon colors */
+  --icon-folder-color: oklch(0.75 0.15 45); /* #D4A500 - Amarillo/Oro para carpetas */
+  --icon-document-color: oklch(0.6 0.19 260); /* #4C90C0 - Azul para documentos */
 
   /* ==================== LAYER 3: EXISTENTES (MANTENIDOS PARA COMPATIBILIDAD) ==================== */
   --background: oklch(1 0 0);
@@ -347,14 +383,21 @@ a:focus-visible {
 }
 
 .sidebar-menu-item {
-  background: linear-gradient(to right, var(--color-primitive-green-medium), var(--btn-secondary-bg));
+  background-color: var(--color-primitive-gray-dark);
   color: var(--text-inverse);
-  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.sidebar-menu-item:hover {
-  background: linear-gradient(to right, var(--color-primitive-green-primary), var(--color-primitive-green-medium));
+.sidebar[data-open="true"] .sidebar-menu-item:hover {
+  background-color: var(--color-primitive-green-medium);
+  color: var(--color-primitive-gray-light);
   transform: translateX(2px);
+}
+
+/* Mantener resaltado cuando el elemento está expandido (aria-expanded="true") */
+.sidebar .sidebar-menu-item[aria-expanded="true"] {
+  background-color: var(--color-primitive-green-medium);
+  color: var(--color-primitive-gray-light);
 }
 
 .sidebar-menu-item:focus-visible {
@@ -363,18 +406,33 @@ a:focus-visible {
 }
 
 .sidebar-submenu-container {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: transparent;
 }
 
 .sidebar-submenu-item {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--color-primitive-gray-dark);
   color: var(--text-inverse);
-  transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.sidebar-submenu-item:hover {
+.sidebar[data-open="true"] .sidebar-submenu-item:hover {
   background-color: var(--color-primitive-green-medium);
+  color: var(--color-primitive-gray-light);
   padding-left: 1.25rem;
+}
+
+/* Cuando el sidebar está cerrado, desactivar hover e interacciones en los items */
+.sidebar[data-open="false"] .sidebar-menu-item,
+.sidebar[data-open="false"] .sidebar-submenu-item {
+  pointer-events: none;
+}
+
+.sidebar[data-open="false"] .sidebar-menu-item:hover,
+.sidebar[data-open="false"] .sidebar-submenu-item:hover {
+  background-color: var(--color-primitive-gray-dark);
+  color: var(--text-inverse);
+  transform: none;
+  padding-left: 0.75rem;
 }
 
 .sidebar-submenu-item:focus-visible {
@@ -401,6 +459,7 @@ a:focus-visible {
   outline-offset: -3px;
 }
 
+<<<<<<< HEAD
 /* Dialog Styles */
 [role="dialog"] {
   background-color: var(--surface-bg);
@@ -422,6 +481,69 @@ a:focus-visible {
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin: 0;
+=======
+/* ==================== UTILITY CLASSES PARA VARIABLES CSS ==================== */
+/* Clases de texto */
+.text-body {
+  color: var(--text-body);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-inverse {
+  color: var(--text-inverse);
+}
+
+/* Clases de fondo */
+.bg-surface {
+  background-color: var(--surface-bg);
+}
+
+.bg-surface-card {
+  background-color: var(--surface-card);
+}
+
+.bg-surface-secondary {
+  background-color: var(--surface-secondary);
+}
+
+.bg-btn-primary {
+  background-color: var(--btn-primary-bg);
+}
+
+.bg-btn-dark {
+  background-color: var(--btn-dark-bg);
+}
+
+.text-btn-primary {
+  color: var(--btn-primary-text);
+}
+
+.text-btn-dark {
+  color: var(--btn-dark-text);
+}
+
+/* Clases de borde */
+.border-default {
+  border-color: var(--border-default);
+}
+
+.border-focus {
+  border-color: var(--border-focus);
+}
+
+/* Estados */
+.bg-success {
+  background-color: var(--state-success-bg);
+  color: var(--state-success-text);
+  border-color: var(--state-success-border);
+>>>>>>> 26e261be662beaaf4f2e4d25c2268d0cab71e9b2
 }
 
 /* Reducir movimiento para usuarios que lo prefieren */
@@ -434,4 +556,224 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ==================== DIAGRAM CALIDAD CUSTOM CLASSES ==================== */
+/* Reemplazo de colores hardcodeados del diagrama con variables CSS */
+
+.diagram-root {
+  background: linear-gradient(to right, var(--color-diagram-root) 0%, var(--color-diagram-root) 100%);
+  color: white;
+}
+
+.diagram-teal-light {
+  background-color: var(--color-diagram-teal-light);
+  color: white;
+}
+
+.diagram-teal-dark {
+  background-color: var(--color-diagram-teal-dark);
+  color: white;
+}
+
+.diagram-purple {
+  background-color: var(--color-diagram-purple);
+  color: white;
+}
+
+.diagram-blue {
+  background-color: var(--color-diagram-blue);
+  color: white;
+}
+
+.diagram-blue-dark {
+  background-color: var(--color-diagram-blue-dark);
+  color: white;
+}
+
+.diagram-green {
+  background-color: var(--color-diagram-green);
+  color: white;
+}
+
+.diagram-orange {
+  background-color: var(--color-diagram-orange);
+  color: white;
+}
+
+.diagram-gray {
+  background-color: var(--color-diagram-gray);
+  color: white;
+}
+
+.diagram-yellow {
+  background-color: var(--color-diagram-yellow);
+  color: white;
+}
+
+.diagram-red {
+  background-color: var(--color-diagram-red);
+  color: white;
+}
+
+.diagram-pink {
+  background-color: var(--color-diagram-pink);
+  color: white;
+}
+
+.diagram-cyan {
+  background-color: var(--color-diagram-cyan);
+  color: white;
+}
+
+.diagram-indigo {
+  background-color: var(--color-diagram-indigo);
+  color: white;
+}
+
+.diagram-lime {
+  background-color: var(--color-diagram-lime);
+  color: white;
+}
+
+.diagram-slate {
+  background-color: var(--color-diagram-slate);
+  color: white;
+}
+
+.search-gradient {
+  background: linear-gradient(to right, var(--color-search-bg-start), var(--color-search-bg-end));
+  color: white;
+}
+
+/* ==================== OPERATIVE DOCS PAGE STYLES ==================== */
+/* Estilos específicos para la página de Documentos Operativos */
+
+.operative-docs-main {
+  min-height: 100vh;
+  background-color: var(--surface-bg);
+}
+
+.operative-docs-header {
+  border-bottom: 1px solid var(--border-default);
+  padding: 1.5rem;
+  background-color: var(--surface-bg);
+}
+
+.operative-docs-header-icon {
+  color: var(--btn-primary-bg);
+}
+
+.operative-docs-header-title {
+  color: var(--text-body);
+}
+
+.operative-docs-search-card {
+  background: linear-gradient(to right, var(--color-search-bg-start), var(--color-search-bg-end));
+}
+
+.operative-docs-search-label {
+  color: var(--text-inverse);
+}
+
+.operative-docs-search-icon {
+  color: var(--color-primitive-gray-light);
+  opacity: 0.5;
+}
+
+.operative-docs-input {
+  background-color: var(--surface-bg) !important;
+  color: var(--text-body) !important;
+}
+
+.operative-docs-table-container {
+  background-color: var(--surface-bg);
+  border-color: var(--border-default);
+}
+
+.operative-docs-table-header {
+  background-color: var(--table-header-bg);
+  color: white;
+}
+
+.operative-docs-breadcrumb-section {
+  background-color: var(--surface-secondary);
+  border-color: var(--border-default);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.operative-docs-breadcrumb-link {
+  color: var(--text-body);
+}
+
+.operative-docs-breadcrumb-separator {
+  color: var(--border-default);
+}
+
+.operative-docs-breadcrumb-page {
+  color: var(--text-body);
+}
+
+.operative-docs-column-header {
+  background-color: var(--surface-secondary);
+  border-color: var(--border-default);
+  border-bottom: 1px solid var(--border-default);
+  color: var(--btn-primary-bg);
+}
+
+.operative-docs-table-row {
+  background-color: var(--surface-bg);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.operative-docs-table-row:hover {
+  background-color: var(--surface-secondary);
+}
+
+.operative-docs-divide-y {
+  border-color: var(--border-default);
+}
+
+.operative-docs-icon-folder {
+  color: var(--icon-folder-color);
+}
+
+.operative-docs-icon-document {
+  color: var(--icon-document-color);
+}
+
+.operative-docs-item-name {
+  color: var(--text-body);
+}
+
+.operative-docs-item-description {
+  color: var(--text-secondary);
+}
+
+.operative-docs-item-meta {
+  color: var(--text-muted);
+}
+
+.operative-docs-item-route {
+  color: var(--btn-primary-bg);
+}
+
+.operative-docs-item-chevron {
+  color: var(--text-muted);
+}
+
+.operative-docs-empty-state {
+  background-color: var(--surface-bg);
+}
+
+.operative-docs-empty-icon {
+  color: var(--state-disabled-text);
+}
+
+.operative-docs-empty-title {
+  color: var(--text-secondary);
+}
+
+.operative-docs-empty-text {
+  color: var(--text-muted);
 }
