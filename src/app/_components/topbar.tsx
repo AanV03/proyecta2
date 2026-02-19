@@ -8,7 +8,7 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-    DropdownMenuSeparator,
+    
 } from "@/components/ui/dropdown-menu";
 import {
     Home,
@@ -127,43 +127,18 @@ export default function TopBar() {
                         <BookOpen className="h-4 w-4" />
                     </Button>
 
-                    {/* User Menu Dropdown */}
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button
-                                variant="ghost"
-                                size="sm"
-                                className="gap-2 bg-btn-primary"
-                                aria-label="Menú de usuario - abrir"
-                            >
-                                <LogIn className="h-4 w-4" />
-                                <span className="hidden sm:inline text-sm">Ingresar</span>
-                                <ChevronDown className="h-3 w-3 opacity-70" />
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end" className="w-48 dropdown-content-dark">
-                            <DropdownMenuItem asChild>
-                                <a href="#login-student" className="flex items-center gap-2">
-                                    <Users className="h-4 w-4" />
-                                    Ingresar como Estudiante
-                                </a>
-                            </DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem asChild>
-                                <a href="#login-teacher" className="flex items-center gap-2">
-                                    <Users className="h-4 w-4" />
-                                    Ingresar como Docente
-                                </a>
-                            </DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem asChild>
-                                <a href="#login-admin" className="flex items-center gap-2">
-                                    <Users className="h-4 w-4" />
-                                    Ingresar como Administrador
-                                </a>
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                    <Link href="#login" aria-label="Ingresar">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            className="gap-2 bg-btn-primary"
+                            aria-label="Ingresar"
+                            title="Ingresar"
+                        >
+                            <LogIn className="h-4 w-4" />
+                            <span className="hidden sm:inline text-sm">Ingresar</span>
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </header>
