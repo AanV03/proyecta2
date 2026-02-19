@@ -33,9 +33,7 @@ export default function AccountPage() {
     name: 'Aaron Alexis',
     lastName: 'Vara Herrera',
     age: 22,
-    group: 'IDGBIS71N',
-    photo:
-      'https://img.freepik.com/foto-gratis/retrato-joven-expresivo-traje-formal_273609-6942.jpg?semt=ais_hybrid&w=740&q=80',
+    group: 'IDGBIS71N'
   };
 
   const academicInfo = {
@@ -236,7 +234,6 @@ export default function AccountPage() {
                   className="h-24 w-24 border-2 border-(--border-default)"
                 >
                   <AvatarImage
-                    src={studentData.photo}
                     alt={`${studentData.name} ${studentData.lastName}`}
                     className="object-cover"
                   />
@@ -485,13 +482,13 @@ export default function AccountPage() {
           <CardContent>
             <Tabs defaultValue="asistencias" className="w-full">
               <TabsList className="grid w-full grid-cols-4">
-                <TabsTrigger value="asistencias">Asistencias</TabsTrigger>
                 <TabsTrigger value="calificaciones">Calificaciones</TabsTrigger>
+                <TabsTrigger value="asistencias">Asistencias</TabsTrigger>
                 <TabsTrigger value="informe">Calificación de Informe</TabsTrigger>
                 <TabsTrigger value="boletas">Boletas</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="asistencias" className="space-y-4">
+              <TabsContent value="calificaciones" className="space-y-4">
                 <div className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="flex items-center gap-3">
@@ -634,12 +631,12 @@ export default function AccountPage() {
                 </div>
               </TabsContent>
 
-              <TabsContent value="calificaciones" className="space-y-4">
+              <TabsContent value="asistencias" className="space-y-4">
                 <div
                   className="p-6 rounded-lg border text-center border-(--border-default) bg-(--surface-secondary) text-(--text-secondary)"
                 >
                   <Clock className="w-8 h-8 mx-auto mb-2 opacity-50" />
-                  <p>Calificaciones próximamente disponibles</p>
+                  <p>Sin registro de asistencias</p>
                 </div>
               </TabsContent>
 
