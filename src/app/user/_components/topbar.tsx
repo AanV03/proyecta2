@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useMemo, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
@@ -8,16 +8,23 @@ import {
     DropdownMenuTrigger,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuSeparator,
-    DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu"
-import { LogOut, User, Menu, Calendar, Users, Bell, ChevronDown, Globe } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { LogOut, User, Menu, Calendar, Phone, Bell, ChevronDown, Globe } from "lucide-react"
 
 type Props = {
     onMenuClick: () => void
 }
 
 export default function TopBar({ onMenuClick }: Props) {
+    const [dirQuery, setDirQuery] = useState("")
+    const directoryItems = useMemo(
+        () => ["Departamentos", "Directorio completo"],
+        []
+    )
+    const filteredDirectory = directoryItems.filter((item) =>
+        item.toLowerCase().includes(dirQuery.toLowerCase())
+    )
     return (
         <header className="topbar-dark border-b">
             <div className="max-w-full mx-auto px-6 py-3 flex items-center justify-between gap-4">
@@ -56,13 +63,10 @@ export default function TopBar({ onMenuClick }: Props) {
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="start">
-                            <DropdownMenuLabel>Navegación</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>Inicio</DropdownMenuItem>
-                            <DropdownMenuItem>Cuenta</DropdownMenuItem>
-                            <DropdownMenuItem>Registro Vehicular</DropdownMenuItem>
-                            <DropdownMenuItem>Encuestas</DropdownMenuItem>
-                            <DropdownMenuItem>Calendario</DropdownMenuItem>
+                            <DropdownMenuItem>UTCH</DropdownMenuItem>
+                            <DropdownMenuItem>Correo y Apps</DropdownMenuItem>
+                            <DropdownMenuItem>UTCH Virtual</DropdownMenuItem>
+                            <DropdownMenuItem>Proyecta Lite</DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
 
@@ -80,8 +84,6 @@ export default function TopBar({ onMenuClick }: Props) {
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="center">
-                            <DropdownMenuLabel>Calendario</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
                             <DropdownMenuItem>Próximos eventos</DropdownMenuItem>
                             <DropdownMenuItem>Eventos académicos</DropdownMenuItem>
                             <DropdownMenuItem>Ver calendario completo</DropdownMenuItem>
@@ -97,16 +99,26 @@ export default function TopBar({ onMenuClick }: Props) {
                                 className="topbar-nav-btn rounded"
                                 aria-label="Menú de directorio"
                             >
-                                <Users className="size-4" aria-hidden="true" />
+                                <Phone className="size-4" aria-hidden="true" />
                                 <span className="text-xs">Directorio</span>
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="center">
-                            <DropdownMenuLabel>Directorio</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>Búsqueda de contactos</DropdownMenuItem>
-                            <DropdownMenuItem>Departamentos</DropdownMenuItem>
-                            <DropdownMenuItem>Directorio completo</DropdownMenuItem>
+                            <div className="px-3 py-2 w-64">
+                                <Input
+                                    placeholder="Buscar..."
+                                    value={dirQuery}
+                                    onChange={(e) => setDirQuery(e.target.value)}
+                                    className="mb-2"
+                                />
+                            </div>
+                            {filteredDirectory.length > 0 ? (
+                                filteredDirectory.map((item) => (
+                                    <DropdownMenuItem key={item}>{item}</DropdownMenuItem>
+                                ))
+                            ) : (
+                                <DropdownMenuItem className="opacity-60">No hay resultados</DropdownMenuItem>
+                            )}
                         </DropdownMenuContent>
                     </DropdownMenu>
 
@@ -128,12 +140,9 @@ export default function TopBar({ onMenuClick }: Props) {
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end" className="w-80">
-                            <DropdownMenuLabel>Notificaciones</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
                             <DropdownMenuItem>Nueva mensaje de profesor</DropdownMenuItem>
                             <DropdownMenuItem>Calificación publicada</DropdownMenuItem>
                             <DropdownMenuItem>Evento próximo</DropdownMenuItem>
-                            <DropdownMenuSeparator />
                             <DropdownMenuItem className="text-center justify-center">Ver todas</DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
@@ -162,11 +171,8 @@ export default function TopBar({ onMenuClick }: Props) {
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
                             <DropdownMenuItem>Cuenta de usuario</DropdownMenuItem>
                             <DropdownMenuItem>Registro Vehicular</DropdownMenuItem>
-                            <DropdownMenuSeparator />
                             <DropdownMenuItem variant="destructive" asChild>
                                 <button className="w-full flex items-center gap-2">
                                     <LogOut className="size-4" aria-hidden="true" />

@@ -390,14 +390,21 @@ a:focus-visible {
 }
 
 .sidebar-menu-item {
-  background: linear-gradient(to right, var(--color-primitive-green-medium), var(--btn-secondary-bg));
+  background-color: var(--color-primitive-gray-dark);
   color: var(--text-inverse);
-  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.sidebar-menu-item:hover {
-  background: linear-gradient(to right, var(--color-primitive-green-primary), var(--color-primitive-green-medium));
+.sidebar[data-open="true"] .sidebar-menu-item:hover {
+  background-color: var(--color-primitive-green-medium);
+  color: var(--color-primitive-gray-light);
   transform: translateX(2px);
+}
+
+/* Mantener resaltado cuando el elemento está expandido (aria-expanded="true") */
+.sidebar .sidebar-menu-item[aria-expanded="true"] {
+  background-color: var(--color-primitive-green-medium);
+  color: var(--color-primitive-gray-light);
 }
 
 .sidebar-menu-item:focus-visible {
@@ -406,18 +413,33 @@ a:focus-visible {
 }
 
 .sidebar-submenu-container {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: transparent;
 }
 
 .sidebar-submenu-item {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--color-primitive-gray-dark);
   color: var(--text-inverse);
-  transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.sidebar-submenu-item:hover {
+.sidebar[data-open="true"] .sidebar-submenu-item:hover {
   background-color: var(--color-primitive-green-medium);
+  color: var(--color-primitive-gray-light);
   padding-left: 1.25rem;
+}
+
+/* Cuando el sidebar está cerrado, desactivar hover e interacciones en los items */
+.sidebar[data-open="false"] .sidebar-menu-item,
+.sidebar[data-open="false"] .sidebar-submenu-item {
+  pointer-events: none;
+}
+
+.sidebar[data-open="false"] .sidebar-menu-item:hover,
+.sidebar[data-open="false"] .sidebar-submenu-item:hover {
+  background-color: var(--color-primitive-gray-dark);
+  color: var(--text-inverse);
+  transform: none;
+  padding-left: 0.75rem;
 }
 
 .sidebar-submenu-item:focus-visible {

@@ -18,14 +18,8 @@ const menuItems = [
         subItems: [
             { label: "Calidad", icon: CheckCircle },
             { label: "Documentación Operativa", icon: Cog },
-            { label: "Projecta Lite", icon: Play },
-            { label: "Directorio", icon: Phone },
-            { label: "Calendario", icon: Calendar },
-            { label: "Educación Continua", icon: BookMarked },
             { label: "Bolsa de Trabajo Cazadores", icon: Briefcase },
             { label: "Bolsa de Trabajo RH", icon: Briefcase },
-            { label: "Bienes Patrimoniales", icon: FolderOpen },
-            { label: "Bienes", icon: FolderOpen },
         ],
     },
     {
@@ -37,14 +31,16 @@ const menuItems = [
             { label: "Estado De Cuenta", icon: TrendingUp },
             { label: "Estadía", icon: Building },
             { label: "Becas", icon: Gift },
-            { label: "Mi Horario", icon: Clock },
             { label: "Empleo Y Estadía", icon: Briefcase },
             { label: "Prácticas Profesionales", icon: Users },
             { label: "Psicología", icon: Brain },
             { label: "Actividades D, C Y C", icon: CheckSquare },
             { label: "Evaluaciones Psicométricas", icon: BarChart3 },
             { label: "Referencias Bancarias", icon: CreditCard },
-            { label: "Préstamo De Equipos", icon: Package },
+            { label: "Constancia De No Adeudo", icon: CheckCircle },
+            { label: "Sesiones De Tutoría", icon: BookOpen },
+            { label: "Citas", icon: Calendar },
+            { label: "Titulación", icon: BookMarked },
         ],
     },
 ]
@@ -73,6 +69,7 @@ export default function Sidebar({ isOpen, onClose }: Props) {
 
             {/* Sidebar */}
             <aside
+                data-open={isOpen}
                 className={`sidebar fixed left-0 top-0 h-screen w-64 z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"
                     }`}
                 role="navigation"
@@ -146,20 +143,6 @@ export default function Sidebar({ isOpen, onClose }: Props) {
                         )
                     })}
                 </nav>
-
-                {/* Separator */}
-                <div className="sidebar-divider mx-4 border-t" />
-
-                {/* Logout */}
-                <div className="p-4">
-                    <button
-                        className="sidebar-logout w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left"
-                        aria-label="Cerrar sesión"
-                    >
-                        <LogOut className="size-4 shrink-0" aria-hidden="true" />
-                        <p className="text-sm font-medium">Cerrar Sesión</p>
-                    </button>
-                </div>
             </aside>
         </>
     )
