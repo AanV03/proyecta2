@@ -107,6 +107,10 @@
   --state-error-border: oklch(0.577 0.245 27.325);
   --state-error-text: oklch(0.4 0.2 27.325);
 
+  --state-success-bg: oklch(0.95 0.08 140);
+  --state-success-border: oklch(0.703 0.228 119.1);
+  --state-success-text: oklch(0.42 0.15 120);
+
   --state-disabled-bg: oklch(0.97 0 0);
   --state-disabled-text: oklch(0.556 0 0);
   --state-disabled-border: oklch(0.922 0 0);
@@ -464,6 +468,69 @@ a:focus-visible {
 .sidebar-logout:focus-visible {
   outline: 3px solid var(--state-error-border);
   outline-offset: -3px;
+}
+
+/* ==================== UTILITY CLASSES PARA VARIABLES CSS ==================== */
+/* Clases de texto */
+.text-body {
+  color: var(--text-body);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-inverse {
+  color: var(--text-inverse);
+}
+
+/* Clases de fondo */
+.bg-surface {
+  background-color: var(--surface-bg);
+}
+
+.bg-surface-card {
+  background-color: var(--surface-card);
+}
+
+.bg-surface-secondary {
+  background-color: var(--surface-secondary);
+}
+
+.bg-btn-primary {
+  background-color: var(--btn-primary-bg);
+}
+
+.bg-btn-dark {
+  background-color: var(--btn-dark-bg);
+}
+
+.text-btn-primary {
+  color: var(--btn-primary-text);
+}
+
+.text-btn-dark {
+  color: var(--btn-dark-text);
+}
+
+/* Clases de borde */
+.border-default {
+  border-color: var(--border-default);
+}
+
+.border-focus {
+  border-color: var(--border-focus);
+}
+
+/* Estados */
+.bg-success {
+  background-color: var(--state-success-bg);
+  color: var(--state-success-text);
+  border-color: var(--state-success-border);
 }
 
 /* Reducir movimiento para usuarios que lo prefieren */
