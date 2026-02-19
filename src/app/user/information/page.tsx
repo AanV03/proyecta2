@@ -209,14 +209,12 @@ export default function AccountPage() {
 
   return (
     <main
-      className="page-main min-h-screen p-6 md:p-8"
-      style={{ backgroundColor: 'var(--surface-bg)' }}
+      className="page-main min-h-screen p-6 md:p-8 bg-(--surface-bg)"
     >
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="flex items-start justify-between">
           <h1
-            className="heading-body text-3xl md:text-4xl font-bold"
-            style={{ color: 'var(--text-body)' }}
+            className="heading-body text-3xl md:text-4xl font-bold text-(--text-body)"
           >
             Mi Expediente
           </h1>
@@ -226,8 +224,7 @@ export default function AccountPage() {
           <Card className="md:col-span-3 h-full">
             <CardHeader>
               <CardTitle
-                className="flex items-center gap-2"
-                style={{ color: 'var(--text-body)' }}
+                className="flex items-center gap-2 text-(--text-body)"
               >
                 <User className="w-5 h-5" />
                 Básico
@@ -236,8 +233,7 @@ export default function AccountPage() {
             <CardContent className="space-y-4 h-full flex flex-col justify-start">
               <div className="flex justify-center">
                 <Avatar
-                  className="h-24 w-24 border-2"
-                  style={{ borderColor: 'var(--border-default)' }}
+                  className="h-24 w-24 border-2 border-(--border-default)"
                 >
                   <AvatarImage
                     src={studentData.photo}
@@ -254,14 +250,12 @@ export default function AccountPage() {
               <div className="space-y-2">
                 <div>
                   <p
-                    className="text-sm font-semibold"
-                    style={{ color: 'var(--text-secondary)' }}
+                    className="text-sm font-semibold text-(--text-secondary)"
                   >
                     Nombre
                   </p>
                   <p
-                    className="font-medium"
-                    style={{ color: 'var(--text-body)' }}
+                    className="font-medium text-(--text-body)"
                   >
                     {studentData.name}
                   </p>
@@ -269,14 +263,12 @@ export default function AccountPage() {
 
                 <div>
                   <p
-                    className="text-sm font-semibold"
-                    style={{ color: 'var(--text-secondary)' }}
+                    className="text-sm font-semibold text-(--text-secondary)"
                   >
                     Apellido Paterno
                   </p>
                   <p
-                    className="font-medium"
-                    style={{ color: 'var(--text-body)' }}
+                    className="font-medium text-(--text-body)"
                   >
                     {studentData.lastName}
                   </p>
@@ -284,14 +276,12 @@ export default function AccountPage() {
 
                 <div>
                   <p
-                    className="text-sm font-semibold"
-                    style={{ color: 'var(--text-secondary)' }}
+                    className="text-sm font-semibold text-(--text-secondary)"
                   >
                     Edad
                   </p>
                   <p
-                    className="font-medium"
-                    style={{ color: 'var(--text-body)' }}
+                    className="font-medium text-(--text-body)"
                   >
                     {studentData.age}
                   </p>
@@ -299,16 +289,12 @@ export default function AccountPage() {
 
                 <div>
                   <p
-                    className="text-sm font-semibold"
-                    style={{ color: 'var(--text-secondary)' }}
+                    className="text-sm font-semibold text-(--text-secondary)"
                   >
                     Grupo
                   </p>
                   <Badge
-                    style={{
-                      backgroundColor: 'var(--btn-primary-bg)',
-                      color: 'var(--btn-primary-text)',
-                    }}
+                    className="bg-(--btn-primary-bg) text-(--btn-primary-text)"
                   >
                     {studentData.group}
                   </Badge>
@@ -319,10 +305,10 @@ export default function AccountPage() {
 
           <Card className="md:col-span-6 h-full">
             <div className="overflow-hidden rounded-md">
-              <div style={{ backgroundColor: 'var(--color-primitive-gray-dark)' }} className="px-4 py-3">
+              <div className="bg-(--color-primitive-gray-dark) px-4 py-3 rounded-t-md">
                 <div className="flex items-center gap-3">
                   <BookOpen className="w-5 h-5 text-white" />
-                  <h3 className="text-lg font-semibold" style={{ color: 'var(--text-inverse)' }}>Información Escolar</h3>
+                  <h3 className="text-lg font-semibold text-(--text-inverse)">Información Escolar</h3>
                 </div>
               </div>
               <CardContent className="relative p-0 min-h-0">
@@ -330,55 +316,55 @@ export default function AccountPage() {
                   <div className="col-span-0 md:col-span-10 min-h-0">
                     <div className="border-t border-b">
                       <div className="grid grid-cols-3">
-                        <div className="p-3 border-r flex flex-col justify-center" style={{ backgroundColor: 'var(--surface-secondary)' }}>
-                          <p className="text-xs font-semibold text-[var(--text-secondary)]">Matrícula</p>
-                          <p className="font-medium text-sm" style={{ color: 'var(--text-body)' }}>{academicInfo.matricula}</p>
+                        <div className="p-3 border-r flex flex-col justify-center bg-(--surface-secondary)">
+                          <p className="text-xs font-semibold text-(--text-secondary)">Matrícula</p>
+                          <p className="font-medium text-sm text-(--text-body)">{academicInfo.matricula}</p>
                         </div>
-                        <div className="p-3 border-r flex flex-col justify-center" style={{ backgroundColor: 'var(--surface-secondary)' }}>
-                          <p className="text-xs font-semibold text-[var(--text-secondary)]">Situación</p>
-                          <p className="font-medium text-sm" style={{ color: 'var(--text-body)' }}>{academicInfo.situation}</p>
+                        <div className="p-3 border-r flex flex-col justify-center bg-(--surface-secondary)">
+                          <p className="text-xs font-semibold text-(--text-secondary)">Situación</p>
+                          <p className="font-medium text-sm text-(--text-body)">{academicInfo.situation}</p>
                         </div>
-                        <div className="p-3 flex flex-col justify-center" style={{ backgroundColor: 'var(--surface-secondary)' }}>
-                          <p className="text-xs font-semibold text-[var(--text-secondary)]">Periodo</p>
-                          <p className="font-medium text-sm" style={{ color: 'var(--text-body)' }}>ENERO-ABRIL 2026</p>
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-3">
-                        <div className="p-3 border-r flex flex-col justify-center" style={{ backgroundColor: 'var(--surface-secondary)' }}>
-                          <p className="text-xs font-semibold text-[var(--text-secondary)]">Unidad</p>
-                          <p className="font-medium text-sm" style={{ color: 'var(--text-body)' }}>{academicInfo.unity}</p>
-                        </div>
-                        <div className="p-3 border-r col-span-2 flex flex-col justify-center" style={{ backgroundColor: 'var(--surface-secondary)' }}>
-                          <p className="text-xs font-semibold text-[var(--text-secondary)]">Carrera</p>
-                          <p className="font-medium text-sm" style={{ color: 'var(--text-body)' }}>{academicInfo.program}</p>
+                        <div className="p-3 flex flex-col justify-center bg-(--surface-secondary)">
+                          <p className="text-xs font-semibold text-(--text-secondary)">Periodo</p>
+                          <p className="font-medium text-sm text-(--text-body)">ENERO-ABRIL 2026</p>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-3">
-                        <div className="p-3 border-r flex flex-col justify-center" style={{ backgroundColor: 'var(--surface-secondary)' }}>
-                          <p className="text-xs font-semibold text-[var(--text-secondary)]">Grado</p>
-                          <p className="font-medium text-sm" style={{ color: 'var(--text-body)' }}>{academicInfo.degree}</p>
+                        <div className="p-3 border-r flex flex-col justify-center bg-(--surface-secondary)">
+                          <p className="text-xs font-semibold text-(--text-secondary)">Unidad</p>
+                          <p className="font-medium text-sm text-(--text-body)">{academicInfo.unity}</p>
                         </div>
-                        <div className="p-3 border-r flex flex-col justify-center" style={{ backgroundColor: 'var(--surface-secondary)' }}>
-                          <p className="text-xs font-semibold text-[var(--text-secondary)]">Grupo</p>
-                          <p className="font-medium text-sm" style={{ color: 'var(--text-body)' }}>{studentData.group}</p>
-                        </div>
-                        <div className="p-3 flex flex-col justify-center" style={{ backgroundColor: 'var(--surface-secondary)' }}>
-                          <p className="text-xs font-semibold text-[var(--text-secondary)]">Tutor</p>
-                          <p className="font-medium text-sm" style={{ color: 'var(--text-body)' }}>{academicInfo.tutor}</p>
-                          <a href={`mailto:${academicInfo.tutorEmail}`} className="text-sm underline" style={{ color: 'var(--btn-primary-bg)' }}>{academicInfo.tutorEmail}</a>
+                        <div className="p-3 border-r col-span-2 flex flex-col justify-center bg-(--surface-secondary)">
+                          <p className="text-xs font-semibold text-(--text-secondary)">Carrera</p>
+                          <p className="font-medium text-sm text-(--text-body)">{academicInfo.program}</p>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-3">
-                        <div className="p-3 col-span-2 flex flex-col justify-center" style={{ backgroundColor: 'var(--surface-secondary)' }}>
-                          <p className="text-xs font-semibold text-[var(--text-secondary)]">Plan de Estudios</p>
-                          <p className="font-medium text-sm" style={{ color: 'var(--text-body)' }}>{academicInfo.studyPlan}</p>
+                        <div className="p-3 border-r flex flex-col justify-center bg-(--surface-secondary)">
+                          <p className="text-xs font-semibold text-(--text-secondary)">Grado</p>
+                          <p className="font-medium text-sm text-(--text-body)">{academicInfo.degree}</p>
                         </div>
-                        <div className="p-3 flex flex-col justify-center" style={{ backgroundColor: 'var(--surface-secondary)' }}>
-                          <p className="text-xs font-semibold text-[var(--text-secondary)]">Turno</p>
-                          <p className="font-medium text-sm" style={{ color: 'var(--text-body)' }}>{academicInfo.schedule}</p>
+                        <div className="p-3 border-r flex flex-col justify-center bg-(--surface-secondary)">
+                          <p className="text-xs font-semibold text-(--text-secondary)">Grupo</p>
+                          <p className="font-medium text-sm text-(--text-body)">{studentData.group}</p>
+                        </div>
+                        <div className="p-3 flex flex-col justify-center bg-(--surface-secondary)">
+                          <p className="text-xs font-semibold text-(--text-secondary)">Tutor</p>
+                          <p className="font-medium text-sm text-(--text-body)">{academicInfo.tutor}</p>
+                          <a href={`mailto:${academicInfo.tutorEmail}`} className="text-sm underline text-(--btn-primary-bg)">{academicInfo.tutorEmail}</a>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3">
+                        <div className="p-3 col-span-2 flex flex-col justify-center bg-(--surface-secondary)">
+                          <p className="text-xs font-semibold text-(--text-secondary)">Plan de Estudios</p>
+                          <p className="font-medium text-sm text-(--text-body)">{academicInfo.studyPlan}</p>
+                        </div>
+                        <div className="p-3 flex flex-col justify-center bg-(--surface-secondary)">
+                          <p className="text-xs font-semibold text-(--text-secondary)">Turno</p>
+                          <p className="font-medium text-sm text-(--text-body)">{academicInfo.schedule}</p>
                         </div>
                       </div>
                     </div>
@@ -392,25 +378,20 @@ export default function AccountPage() {
             <Card className="h-full">
               <CardHeader className="pb-2">
                 <CardTitle
-                  className="flex items-center gap-2 text-base"
-                  style={{ color: 'var(--text-body)' }}
+                  className="flex items-center gap-2 text-base text-(--text-body)"
                 >
                   <CalendarDays className="w-4 h-4" />
                   Horario Escolar
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-0 h-full flex flex-col">
-                <p className="text-sm mb-3" style={{ color: 'var(--text-secondary)' }}>
+                <p className="text-sm mb-3 text-(--text-secondary)">
                   Al hacer click se muestra un modal con el horario.
                 </p>
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button
-                      className="w-full"
-                      style={{
-                        backgroundColor: 'var(--btn-primary-bg)',
-                        color: 'var(--btn-primary-text)',
-                      }}
+                      className="w-full bg-(--btn-primary-bg) text-(--btn-primary-text)"
                     >
                       Ver horario
                     </Button>
@@ -422,36 +403,32 @@ export default function AccountPage() {
                     <Table>
                       <TableHeader>
                         <TableRow>
-                          <TableHead style={{ color: 'var(--text-body)' }}>Día</TableHead>
-                          <TableHead style={{ color: 'var(--text-body)' }}>
+                          <TableHead className="text-(--text-body)">Día</TableHead>
+                          <TableHead className="text-(--text-body)">
                             Materia
                           </TableHead>
-                          <TableHead style={{ color: 'var(--text-body)' }}>
+                          <TableHead className="text-(--text-body)">
                             Horario
                           </TableHead>
-                          <TableHead style={{ color: 'var(--text-body)' }}>Aula</TableHead>
+                          <TableHead className="text-(--text-body)">Aula</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
                         {schoolSchedule.map((row, idx) => (
                           <TableRow
                             key={idx}
-                            style={
-                              idx % 2 === 0
-                                ? { backgroundColor: 'var(--surface-secondary)' }
-                                : {}
-                            }
+                            className={idx % 2 === 0 ? 'bg-(--surface-secondary)' : ''}
                           >
-                            <TableCell style={{ color: 'var(--text-body)' }}>
+                            <TableCell className="text-(--text-body)">
                               {row.day}
                             </TableCell>
-                            <TableCell style={{ color: 'var(--text-body)' }}>
+                            <TableCell className="text-(--text-body)">
                               {row.subject}
                             </TableCell>
-                            <TableCell style={{ color: 'var(--text-secondary)' }}>
+                            <TableCell className="text-(--text-secondary)">
                               {row.time}
                             </TableCell>
-                            <TableCell style={{ color: 'var(--text-secondary)' }}>
+                            <TableCell className="text-(--text-secondary)">
                               {row.classroom}
                             </TableCell>
                           </TableRow>
@@ -466,8 +443,7 @@ export default function AccountPage() {
             <Card className="h-full">
               <CardHeader className="pb-2">
                 <CardTitle
-                  className="flex items-center gap-2 text-base"
-                  style={{ color: 'var(--text-body)' }}
+                  className="flex items-center gap-2 text-base text-(--text-body)"
                 >
                   <AlertCircle className="w-4 h-4" />
                   Otros Datos
@@ -476,26 +452,24 @@ export default function AccountPage() {
               <CardContent className="space-y-3 pt-0 h-full flex flex-col justify-center">
                 <div>
                   <p
-                    className="text-xs font-semibold flex items-center gap-2 mb-1"
-                    style={{ color: 'var(--text-secondary)' }}
+                    className="text-xs font-semibold flex items-center gap-2 mb-1 text-(--text-secondary)"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     Teléfono
                   </p>
-                  <p className="font-medium text-xs" style={{ color: 'var(--text-body)' }}>
+                  <p className="font-medium text-xs text-(--text-body)">
                     {contactInfo.phone}
                   </p>
                 </div>
 
                 <div>
                   <p
-                    className="text-xs font-semibold flex items-center gap-2 mb-1"
-                    style={{ color: 'var(--text-secondary)' }}
+                    className="text-xs font-semibold flex items-center gap-2 mb-1 text-(--text-secondary)"
                   >
                     <MapPin className="w-3.5 h-3.5" />
                     Domicilio
                   </p>
-                  <p className="font-medium text-xs" style={{ color: 'var(--text-body)' }}>
+                  <p className="font-medium text-xs text-(--text-body)">
                     {contactInfo.address}
                   </p>
                 </div>
@@ -506,7 +480,7 @@ export default function AccountPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle style={{ color: 'var(--text-body)' }}>Acciones</CardTitle>
+            <CardTitle className="text-(--text-body)">Acciones</CardTitle>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="asistencias" className="w-full">
@@ -522,14 +496,10 @@ export default function AccountPage() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="flex items-center gap-3">
                       <div
-                        className="w-12 h-6 rounded"
-                        style={{
-                          backgroundColor: 'oklch(0.703 0.228 119.1)',
-                        }}
+                        className="w-12 h-6 rounded bg-[oklch(0.703_0.228_119.1)]"
                       />
                       <span
-                        className="text-sm font-medium"
-                        style={{ color: 'var(--text-body)' }}
+                        className="text-sm font-medium text-(--text-body)"
                       >
                         Ordinario
                       </span>
@@ -537,14 +507,10 @@ export default function AccountPage() {
 
                     <div className="flex items-center gap-3">
                       <div
-                        className="w-12 h-6 rounded"
-                        style={{
-                          backgroundColor: 'oklch(0.84 0.2 73.5)',
-                        }}
+                        className="w-12 h-6 rounded bg-[oklch(0.84_0.2_73.5)]"
                       />
                       <span
-                        className="text-sm font-medium"
-                        style={{ color: 'var(--text-body)' }}
+                        className="text-sm font-medium text-(--text-body)"
                       >
                         Recuperación
                       </span>
@@ -552,14 +518,10 @@ export default function AccountPage() {
 
                     <div className="flex items-center gap-3">
                       <div
-                        className="w-12 h-6 rounded"
-                        style={{
-                          backgroundColor: 'oklch(0.577 0.245 27.325)',
-                        }}
+                        className="w-12 h-6 rounded bg-[oklch(0.577_0.245_27.325)]"
                       />
                       <span
-                        className="text-sm font-medium"
-                        style={{ color: 'var(--text-body)' }}
+                        className="text-sm font-medium text-(--text-body)"
                       >
                         Evaluación Extraordinaria
                       </span>
@@ -570,7 +532,7 @@ export default function AccountPage() {
                     {attendanceRecords.map((period, idx) => (
                       <AccordionItem key={idx} value={`period-${idx}`}>
                         <AccordionTrigger>
-                          <span style={{ color: 'var(--text-body)' }}>
+                          <span className="text-(--text-body)">
                             Período: {period.period} | Grupo: {period.group} | Grado:{' '}
                             {period.grade} | Promedio: {period.avg}
                           </span>
@@ -580,39 +542,34 @@ export default function AccountPage() {
                             <Table>
                               <TableHeader>
                                 <TableRow>
-                                  <TableHead style={{ color: 'var(--text-body)' }}>
+                                  <TableHead className="text-(--text-body)">
                                     Materia
                                   </TableHead>
-                                  <TableHead style={{ color: 'var(--text-body)' }}>
+                                  <TableHead className="text-(--text-body)">
                                     Profesor
                                   </TableHead>
                                   <TableHead
-                                    className="text-center"
-                                    style={{ color: 'var(--text-body)' }}
+                                    className="text-center text-(--text-body)"
                                   >
                                     U1
                                   </TableHead>
                                   <TableHead
-                                    className="text-center"
-                                    style={{ color: 'var(--text-body)' }}
+                                    className="text-center text-(--text-body)"
                                   >
                                     U2
                                   </TableHead>
                                   <TableHead
-                                    className="text-center"
-                                    style={{ color: 'var(--text-body)' }}
+                                    className="text-center text-(--text-body)"
                                   >
                                     U3
                                   </TableHead>
                                   <TableHead
-                                    className="text-center"
-                                    style={{ color: 'var(--text-body)' }}
+                                    className="text-center text-(--text-body)"
                                   >
                                     U4
                                   </TableHead>
                                   <TableHead
-                                    className="text-center"
-                                    style={{ color: 'var(--text-body)' }}
+                                    className="text-center text-(--text-body)"
                                   >
                                     Promedio
                                   </TableHead>
@@ -622,53 +579,40 @@ export default function AccountPage() {
                                 {period.grades.map((row, rowIdx) => (
                                   <TableRow
                                     key={rowIdx}
-                                    style={
-                                      rowIdx % 2 === 0
-                                        ? {
-                                            backgroundColor: 'var(--surface-secondary)',
-                                          }
-                                        : {}
-                                    }
+                                    className={rowIdx % 2 === 0 ? 'bg-(--surface-secondary)' : ''}
                                   >
                                     <TableCell
-                                      className="font-medium"
-                                      style={{ color: 'var(--text-body)' }}
+                                      className="font-medium text-(--text-body)"
                                     >
                                       {row.subject}
                                     </TableCell>
                                     <TableCell
-                                      className="text-sm"
-                                      style={{ color: 'var(--text-secondary)' }}
+                                      className="text-sm text-(--text-secondary)"
                                     >
                                       {row.professor}
                                     </TableCell>
                                     <TableCell
-                                      className="text-center"
-                                      style={{ color: 'var(--text-body)' }}
+                                      className="text-center text-(--text-body)"
                                     >
                                       {row.u1}
                                     </TableCell>
                                     <TableCell
-                                      className="text-center"
-                                      style={{ color: 'var(--text-body)' }}
+                                      className="text-center text-(--text-body)"
                                     >
                                       {row.u2}
                                     </TableCell>
                                     <TableCell
-                                      className="text-center"
-                                      style={{ color: 'var(--text-body)' }}
+                                      className="text-center text-(--text-body)"
                                     >
                                       {row.u3}
                                     </TableCell>
                                     <TableCell
-                                      className="text-center"
-                                      style={{ color: 'var(--text-body)' }}
+                                      className="text-center text-(--text-body)"
                                     >
                                       {row.u4}
                                     </TableCell>
                                     <TableCell
-                                      className="text-center"
-                                      style={{ color: 'var(--text-secondary)' }}
+                                      className="text-center text-(--text-secondary)"
                                     >
                                       {row.avg}
                                     </TableCell>
@@ -678,12 +622,7 @@ export default function AccountPage() {
                             </Table>
                           ) : (
                             <div
-                              className="p-3 rounded border text-sm"
-                              style={{
-                                borderColor: 'var(--border-default)',
-                                backgroundColor: 'var(--surface-secondary)',
-                                color: 'var(--text-secondary)',
-                              }}
+                              className="p-3 rounded border text-sm border-(--border-default) bg-(--surface-secondary) text-(--text-secondary)"
                             >
                               Sin detalle de materias para este período.
                             </div>
@@ -697,12 +636,7 @@ export default function AccountPage() {
 
               <TabsContent value="calificaciones" className="space-y-4">
                 <div
-                  className="p-6 rounded-lg border text-center"
-                  style={{
-                    borderColor: 'var(--border-default)',
-                    backgroundColor: 'var(--surface-secondary)',
-                    color: 'var(--text-secondary)',
-                  }}
+                  className="p-6 rounded-lg border text-center border-(--border-default) bg-(--surface-secondary) text-(--text-secondary)"
                 >
                   <Clock className="w-8 h-8 mx-auto mb-2 opacity-50" />
                   <p>Calificaciones próximamente disponibles</p>
@@ -711,12 +645,7 @@ export default function AccountPage() {
 
               <TabsContent value="informe" className="space-y-4">
                 <div
-                  className="p-6 rounded-lg border text-center"
-                  style={{
-                    borderColor: 'var(--border-default)',
-                    backgroundColor: 'var(--surface-secondary)',
-                    color: 'var(--text-secondary)',
-                  }}
+                  className="p-6 rounded-lg border text-center border-(--border-default) bg-(--surface-secondary) text-(--text-secondary)"
                 >
                   <Clock className="w-8 h-8 mx-auto mb-2 opacity-50" />
                   <p>Informe de calificaciones próximamente disponible</p>
@@ -725,12 +654,7 @@ export default function AccountPage() {
 
               <TabsContent value="boletas" className="space-y-4">
                 <div
-                  className="p-6 rounded-lg border text-center"
-                  style={{
-                    borderColor: 'var(--border-default)',
-                    backgroundColor: 'var(--surface-secondary)',
-                    color: 'var(--text-secondary)',
-                  }}
+                  className="p-6 rounded-lg border text-center border-(--border-default) bg-(--surface-secondary) text-(--text-secondary)"
                 >
                   <Clock className="w-8 h-8 mx-auto mb-2 opacity-50" />
                   <p>Boletas próximamente disponibles</p>

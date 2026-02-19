@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronDown, BookOpen, Users, LogOut, CheckCircle, Cog, Play, Phone, Calendar, BookMarked, Briefcase, FolderOpen, FileText, TrendingUp, Building, Gift, Clock, Brain, CheckSquare, BarChart3, CreditCard, Package } from "lucide-react"
+import { ChevronLeft, ChevronDown, BookOpen, Users, CheckCircle, Cog, Calendar, BookMarked, Briefcase, FileText, TrendingUp, Building, Gift, Brain, CheckSquare, BarChart3, CreditCard } from "lucide-react"
 import "@/styles/globals.css"
 
 type Props = {
