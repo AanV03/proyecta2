@@ -1,6 +1,18 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogFooter,
+} from "@/components/ui/dialog";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -8,7 +20,7 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-    DropdownMenuSeparator,
+    
 } from "@/components/ui/dropdown-menu";
 import {
     Home,
@@ -23,6 +35,24 @@ import {
 } from "lucide-react";
 
 export default function TopBar() {
+    const router = useRouter();
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [matricula, setMatricula] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleCancel = () => {
+        setIsDialogOpen(false);
+        setMatricula("");
+        setPassword("");
+        router.push("/");
+    };
+
+    const handleLogin = () => {
+        setIsDialogOpen(false);
+        setMatricula("");
+        setPassword("");
+        router.push("/user");
+    };
     return (
         <header
             className="topbar w-full py-3 px-6 border-b"
@@ -127,45 +157,66 @@ export default function TopBar() {
                         <BookOpen className="h-4 w-4" />
                     </Button>
 
-                    {/* User Menu Dropdown */}
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button
-                                variant="ghost"
-                                size="sm"
-                                className="gap-2 bg-btn-primary"
-                                aria-label="Menú de usuario - abrir"
-                            >
-                                <LogIn className="h-4 w-4" />
-                                <span className="hidden sm:inline text-sm">Ingresar</span>
-                                <ChevronDown className="h-3 w-3 opacity-70" />
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end" className="w-48 dropdown-content-dark">
-                            <DropdownMenuItem asChild>
-                                <a href="#login-student" className="flex items-center gap-2">
-                                    <Users className="h-4 w-4" />
-                                    Ingresar como Estudiante
-                                </a>
-                            </DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem asChild>
-                                <a href="#login-teacher" className="flex items-center gap-2">
-                                    <Users className="h-4 w-4" />
-                                    Ingresar como Docente
-                                </a>
-                            </DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem asChild>
-                                <a href="#login-admin" className="flex items-center gap-2">
-                                    <Users className="h-4 w-4" />
-                                    Ingresar como Administrador
-                                </a>
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        className="gap-2 bg-btn-primary"
+                        aria-label="Ingresar"
+                        title="Ingresar"
+                        onClick={() => setIsDialogOpen(true)}
+                    >
+                        <LogIn className="h-4 w-4" />
+                        <span className="hidden sm:inline text-sm">Ingresar</span>
+                    </Button>
                 </div>
             </div>
+
+            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                <DialogContent className="max-w-[245px]">
+                    <DialogHeader>
+                        <DialogTitle>Iniciar Sesión</DialogTitle>
+                        <DialogDescription>
+                            Ingresa tu matrícula y contraseña para acceder
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="grid gap-4 py-4">
+                        <div className="grid gap-2">
+                            <Label htmlFor="matricula">Matrícula</Label>
+                            <Input
+                                id="matricula"
+                                placeholder="Ingresa tu matrícula"
+                                value={matricula}
+                                onChange={(e) => setMatricula(e.target.value)}
+                            />
+                        </div>
+                        <div className="grid gap-2">
+                            <Label htmlFor="password">Contraseña</Label>
+                            <Input
+                                id="password"
+                                type="password"
+                                placeholder="Ingresa tu contraseña"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="flex gap-2 w-full">
+                        <Button
+                            variant="outline"
+                            onClick={handleCancel}
+                            className="w-1/2 bg-red-600 hover:bg-red-700 text-white border-red-600 hover:border-red-700"
+                        >
+                            Cancelar
+                        </Button>
+                        <Button
+                            onClick={handleLogin}
+                            className="w-1/2 bg-green-600 hover:bg-green-700 text-white"
+                        >
+                            Iniciar Sesión
+                        </Button>
+                    </div>
+                </DialogContent>
+            </Dialog>
         </header>
     );
 }

@@ -295,6 +295,41 @@ a:focus-visible {
   border-color: var(--border-default);
 }
 
+.topbar-dark {
+  background-color: var(--color-primitive-gray-dark);
+  border-color: var(--border-default);
+  color: var(--text-inverse);
+}
+
+.topbar-logo {
+  height: 2.5rem;
+  width: auto;
+}
+
+.topbar-nav-btn {
+  color: var(--text-inverse);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.topbar-nav-btn:hover,
+.topbar-nav-btn[data-state="open"] {
+  background-color: var(--color-primitive-green-medium);
+}
+
+.topbar-nav-btn:focus-visible {
+  outline: 3px solid var(--color-primitive-green-light);
+  outline-offset: 2px;
+}
+
+.topbar-avatar {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-dark-text);
+}
+
+.topbar-notification-dot {
+  background-color: var(--state-error-border);
+}
+
 .logo-small {
   height: 1.7rem;
   width: auto;
@@ -331,6 +366,104 @@ a:focus-visible {
 .footer-contact {
   border-top: 1px solid var(--border-default);
   color: var(--text-secondary);
+}
+
+/* ==================== SIDEBAR STYLES ==================== */
+.sidebar {
+  background-color: var(--color-primitive-gray-dark);
+  color: var(--text-inverse);
+}
+
+/* Hide scrollbar while keeping functionality */
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.sidebar-header {
+  border-bottom-color: var(--border-default);
+  background-color: var(--color-primitive-gray-dark);
+}
+
+.sidebar-menu-item {
+  background-color: var(--color-primitive-gray-dark);
+  color: var(--text-inverse);
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.sidebar[data-open="true"] .sidebar-menu-item:hover {
+  background-color: var(--color-primitive-green-medium);
+  color: var(--color-primitive-gray-light);
+  transform: translateX(2px);
+}
+
+/* Mantener resaltado cuando el elemento está expandido (aria-expanded="true") */
+.sidebar .sidebar-menu-item[aria-expanded="true"] {
+  background-color: var(--color-primitive-green-medium);
+  color: var(--color-primitive-gray-light);
+}
+
+.sidebar-menu-item:focus-visible {
+  outline: 3px solid var(--color-primitive-green-dark);
+  outline-offset: 2px;
+}
+
+.sidebar-submenu-container {
+  background-color: transparent;
+}
+
+.sidebar-submenu-item {
+  background-color: var(--color-primitive-gray-dark);
+  color: var(--text-inverse);
+  transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.sidebar[data-open="true"] .sidebar-submenu-item:hover {
+  background-color: var(--color-primitive-green-medium);
+  color: var(--color-primitive-gray-light);
+  padding-left: 1.25rem;
+}
+
+/* Cuando el sidebar está cerrado, desactivar hover e interacciones en los items */
+.sidebar[data-open="false"] .sidebar-menu-item,
+.sidebar[data-open="false"] .sidebar-submenu-item {
+  pointer-events: none;
+}
+
+.sidebar[data-open="false"] .sidebar-menu-item:hover,
+.sidebar[data-open="false"] .sidebar-submenu-item:hover {
+  background-color: var(--color-primitive-gray-dark);
+  color: var(--text-inverse);
+  transform: none;
+  padding-left: 0.75rem;
+}
+
+.sidebar-submenu-item:focus-visible {
+  outline: 3px solid var(--color-primitive-green-dark);
+  outline-offset: -3px;
+}
+
+.sidebar-divider {
+  border-top-color: var(--border-default);
+}
+
+.sidebar-logout {
+  color: var(--state-error-border);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.sidebar-logout:hover {
+  background-color: rgba(217, 70, 39, 0.15);
+  color: var(--state-error-border);
+}
+
+.sidebar-logout:focus-visible {
+  outline: 3px solid var(--state-error-border);
+  outline-offset: -3px;
 }
 
 /* Reducir movimiento para usuarios que lo prefieren */
